@@ -3,10 +3,10 @@
     <channel>
         <title>Naughtyb0y's Blog</title>
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
-        <link>https://naughtyboy-is-pro.netlify.com/</link>
-        <atom:link href="https://naughtyboy-is-pro.netlify.com/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 13 Mar 2020 00:04:50 +0530</pubDate>
-        <lastBuildDate>Fri, 13 Mar 2020 00:04:50 +0530</lastBuildDate>
+        <link>http://localhost:8000/</link>
+        <atom:link href="http://localhost:8000/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 13 Mar 2020 01:21:26 +0530</pubDate>
+        <lastBuildDate>Fri, 13 Mar 2020 01:21:26 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
         
             <item>
@@ -105,8 +105,8 @@ and we can so we use the following command to get the flag
 Hope you learnt something! &lt;strong&gt;:)&lt;/strong&gt;&lt;/p&gt;
 </description>
                 <pubDate>Thu, 12 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-BoilerCTF-Walkthrough</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-BoilerCTF-Walkthrough</guid>
+                <link>http://localhost:8000/Try-Hack-Me-BoilerCTF-Walkthrough</link>
+                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-BoilerCTF-Walkthrough</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -169,8 +169,8 @@ its &lt;strong&gt;UnileverWifi&lt;/strong&gt;&lt;/p&gt;
 
 </description>
                 <pubDate>Wed, 11 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-OhSINT</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-OhSINT</guid>
+                <link>http://localhost:8000/Try-Hack-Me-OhSINT</link>
+                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-OhSINT</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -386,8 +386,8 @@ This series was very interesting and got to learn a lot&lt;/p&gt;
 
 </description>
                 <pubDate>Tue, 10 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</guid>
+                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</link>
+                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -461,8 +461,8 @@ we see that there is error in magic bytes so lets correct it&lt;/p&gt;
 
 </description>
                 <pubDate>Mon, 09 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/UTCTF20-Writup</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/UTCTF20-Writup</guid>
+                <link>http://localhost:8000/UTCTF20-Writup</link>
+                <guid isPermaLink="true">http://localhost:8000/UTCTF20-Writup</guid>
                 
                 <category>CTF</category>
                 
@@ -687,8 +687,8 @@ and the cookie.php file is very trivial one&lt;/p&gt;
 That’s it for today&lt;/p&gt;
 </description>
                 <pubDate>Sun, 08 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</guid>
+                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</link>
+                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -796,8 +796,8 @@ I spent 9 hours on this box despite this being a beginner box but at the end&lt;
 &lt;strong&gt;Enumeration is the Key&lt;/strong&gt;&lt;/p&gt;
 </description>
                 <pubDate>Fri, 06 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Muzzy-Box-Walkthrough</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Muzzy-Box-Walkthrough</guid>
+                <link>http://localhost:8000/Muzzy-Box-Walkthrough</link>
+                <guid isPermaLink="true">http://localhost:8000/Muzzy-Box-Walkthrough</guid>
                 
                 <category>Vulnhub</category>
                 
@@ -1020,8 +1020,8 @@ it directly gave us the flag&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;BYE!!&lt;/em&gt;&lt;/p&gt;
 </description>
                 <pubDate>Fri, 06 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Vulnhub-Ridiculously-Easy</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Vulnhub-Ridiculously-Easy</guid>
+                <link>http://localhost:8000/Vulnhub-Ridiculously-Easy</link>
+                <guid isPermaLink="true">http://localhost:8000/Vulnhub-Ridiculously-Easy</guid>
                 
                 <category>Vulnhub</category>
                 
@@ -1182,8 +1182,8 @@ here google comes to my rescue we need to use &lt;em&gt;openssl rsautl&lt;/em&gt
 &lt;p&gt;&lt;img src=&quot;images/thm_advent/48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
                 <pubDate>Thu, 05 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</guid>
+                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</link>
+                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -1374,8 +1374,8 @@ so we find other files having string shadow in it and to which we have permissio
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
                 <pubDate>Wed, 04 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</guid>
+                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</link>
+                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -1533,8 +1533,8 @@ the link to the repo is &lt;a href=&quot;https://github.com/Masrt200/WoC2k19&quo
 &lt;code class=&quot;highlighter-rouge&quot;&gt;shellctf{k3y_s1ze_m@tter$}&lt;/code&gt;&lt;/p&gt;
 </description>
                 <pubDate>Sat, 29 Feb 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyboy-is-pro.netlify.com/ShellpwnCTF-2020</link>
-                <guid isPermaLink="true">https://naughtyboy-is-pro.netlify.com/ShellpwnCTF-2020</guid>
+                <link>http://localhost:8000/ShellpwnCTF-2020</link>
+                <guid isPermaLink="true">http://localhost:8000/ShellpwnCTF-2020</guid>
                 
                 <category>CTF</category>
                 

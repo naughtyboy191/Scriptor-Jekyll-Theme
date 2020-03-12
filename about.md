@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About this blog
+title: About
 description: An optional about page for Scriptor Jekyll theme
 feature_image: images/about.jpg
 ---

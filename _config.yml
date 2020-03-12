@@ -18,7 +18,7 @@ description: "This blog is maintained by a student of IIT(ISM) Dhanbad"
 baseurl: ""
 
 # The base hostname & protocol of your site for where absolute urls are needed.
-url: "https://naughtyboy-is-pro.netlify.com"
+url: "https://naughtyb0y.onrender.com"
 
 # Favicon
 favicon: images/favicon.png
