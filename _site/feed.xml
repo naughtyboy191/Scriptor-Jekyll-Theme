@@ -5,8 +5,8 @@
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
         <link>http://localhost:8000/</link>
         <atom:link href="http://localhost:8000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 13 Mar 2020 01:21:26 +0530</pubDate>
-        <lastBuildDate>Fri, 13 Mar 2020 01:21:26 +0530</lastBuildDate>
+        <pubDate>Fri, 13 Mar 2020 01:28:27 +0530</pubDate>
+        <lastBuildDate>Fri, 13 Mar 2020 01:28:27 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
         
             <item>
