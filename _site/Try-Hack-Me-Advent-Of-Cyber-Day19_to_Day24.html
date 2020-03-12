@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try Hackme Advent of Cyber Day19 to Day24 Walkthrough</title>
+  <meta name="description" content="Just a simple walkthrough">
+  <link rel="canonical" href="https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24">
+  <link rel="alternate" type="application/rss+xml" title="Naughtyb0y&#39;s Blog Feed"
+    href="https://naughtyboy-is-pro.netlify.com/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Naughtyb0y's Blog</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-03-10">March 10, 2020</time>
+      <h1 class="post-title">Try Hackme Advent of Cyber Day19 to Day24 Walkthrough</h1>
+      <div class="post-meta">
+        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags/#TryHackMe" rel="tag">TryHackMe</a>, <a href="/tags/#Advent_Of_Cyber" rel="tag">Advent_Of_Cyber</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/images/thm_advent/front.jpg" alt="Try Hackme Advent of Cyber Day19 to Day24 Walkthrough">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <!--more-->
+<p>So this is last part of the writup of the 25-day series
+Hope you learnt something till now!!!</p>
+
+<h2 id="day19task-24">Day19(Task 24)</h2>
+
+<p>this is a LFI task 
+just like we have done in previous task 
+so I ran the whoami command and got the response shown below</p>
+
+<p><img src="images/thm_advent/82.png" alt="" /></p>
+
+<p>So we are root so lets find where the user.txt file is located note that we have to url encode the command we are going to execute so I used the find command to find the location</p>
+
+<p><img src="images/thm_advent/80.png" alt="" /></p>
+
+<p>now just simply reading out the user.txt file 
+I know that the task was to spawn a revershell using the lfi but I was lazy enough to not do that and find the other way</p>
+
+<p><img src="images/thm_advent/81.png" alt="" /></p>
+
+<h2 id="day20task-25">Day20(Task 25)</h2>
+
+<p>We are given with an IP let’s start with the basic nmap scan</p>
+
+<p><img src="images/thm_advent/83.png" alt="" /></p>
+
+<p>we got the answer to the first question now lets use hydra to bruteforce the user <strong>sam</strong> password</p>
+
+<p><img src="images/thm_advent/84.png" alt="" /></p>
+
+<p>found the password now logging into the machine using ssh and reading the first flag</p>
+
+<p><img src="images/thm_advent/85.png" alt="" /></p>
+
+<p>the second part was a cronjob escalation which is kind of easy if you understood the previous challenges carefully</p>
+
+<p>so I am not solving the last part</p>
+
+<h2 id="day21task-26">Day21(Task 26)</h2>
+
+<p>This is a reversing engineering task 
+I am complete noob in this fields so I read about tons of blogs to get started on this
+lets begin with analysing the binary with r2 using following command</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>r2 -d &lt;file-name&gt;
+</code></pre></div></div>
+
+<p>now we start auto-analysing the binary with the command <strong><em>aaaa</em></strong></p>
+
+<p>Now search for the main function as referred in the helping material using</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>afl |grep "main"
+</code></pre></div></div>
+
+<p><img src="images/thm_advent/86.png" alt="" /></p>
+
+<p>now to view the disassembled assembly code for main function we use
+<code class="highlighter-rouge">pdf @main</code></p>
+
+<p><img src="images/thm_advent/87.png" alt="" /></p>
+
+<p>here we can see the disassembled code and I don’t need to explain you in detail all of the things are given in helping material</p>
+
+<p>now lets add breakpoints  by using following commands</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>db &lt;address&gt;
+</code></pre></div></div>
+
+<p>to add a breakpoint</p>
+
+<p>then we use the commands to control the execution flow
+<strong>dc</strong>- continue exection 
+<strong>ds</strong>- go one step ahead into the program flow</p>
+
+<p>you can see the breakpoints i added</p>
+
+<p><img src="images/thm_advent/88.png" alt="" /></p>
+
+<p>now checking the value of var_ch at intialization
+we see that the value of var_ch is still not initialised so we step one instruction further and view its value by using <code class="highlighter-rouge">px @&lt;location&gt;</code></p>
+
+<p><img src="images/thm_advent/89.png" alt="" /></p>
+
+<p>We got the answer to first question now continuing
+now we have to check the values of the register so we use <code class="highlighter-rouge">dr</code> command</p>
+
+<p><img src="images/thm_advent/90.png" alt="" /></p>
+
+<p>We got the answer to the second question as well so lets continue
+now we to check the value of <em>var_4h</em> before the eax register has 0 assigned to it</p>
+
+<p><img src="images/thm_advent/91.png" alt="" /></p>
+
+<p>we get the answer to the third question as well 
+That’s all for this task</p>
+
+<h2 id="day22task-27">Day22(Task 27)</h2>
+
+<p>This is also a reversing task but this is used to explain the implementation of the conditional statements in the assembly code</p>
+
+<p>lets view the decompiled code of the main function</p>
+
+<p><img src="images/thm_advent/92.png" alt="" /></p>
+
+<p>the C language equivalent code would be something like this</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+<span class="nf">if</span><span class="p">(</span><span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">){</span>
+	<span class="n">b</span><span class="o">+=</span><span class="mi">7</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+	<span class="n">a</span><span class="o">+=</span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>from the above code we can easily answer the questions asked in the task</p>
+
+<h2 id="day23task-28">Day23(Task 28)</h2>
+
+<p>So this a SQL-injection task
+And I have previously used the sqlmap tool in previous task so I dont need to explain it again</p>
+
+<p>lets take al look at the website,just a basic login form</p>
+
+<p><img src="images/thm_advent/93.png" alt="" /></p>
+
+<p>lets start up burp and capture the request to be supplied to splmap
+and check for the databases present with sqlmap</p>
+
+<p><img src="images/thm_advent/94.png" alt="" /></p>
+
+<p>so the database name is <strong>social</strong> and lets check for tables</p>
+
+<p><img src="images/thm_advent/95.png" alt="" /></p>
+
+<p>so looks like the table is <strong>users</strong> so lets dump the data present in the table</p>
+
+<p><img src="images/thm_advent/96.png" alt="" /></p>
+
+<p>so we got the email for santa claus ie <strong>bigman@shefesh.com</strong>and the password as md5 hash so lets crack it online</p>
+
+<p><img src="images/thm_advent/97.png" alt="" /></p>
+
+<p>lets login into the website
+we can easily view the conversation between santa and Mommy Mistletoe</p>
+
+<p><img src="images/thm_advent/98.png" alt="" /></p>
+
+<p>to get a shell we have to upload php revshell to the site 
+so we can post the php file to website but we cant upload it directly as it restricts it so we rename the file as .phtml and it lets us upload it and simultaneously start a listner at the port specified in the file</p>
+
+<p>so we get a shell and access the flag</p>
+
+<p><img src="images/thm_advent/99.png" alt="" /></p>
+
+<h2 id="day24task-29">Day24(Task 29)</h2>
+
+<p>lets start with an nmap scan</p>
+
+<p><img src="images/thm_advent/100.png" alt="" /></p>
+
+<p>so lets checkout the 9200 port elastiseach service 
+i got a useful <a href="https://logz.io/blog/elasticsearch-queries/">article</a> on same</p>
+
+<p><img src="images/thm_advent/101.png" alt="" /></p>
+
+<p>lets checkout the port 8000
+its turns out to be a logfile so lets take a look at it</p>
+
+<p><img src="images/thm_advent/102.png" alt="" /></p>
+
+<p>so it seems that there seems to be a server running at 5601
+so lets verify it with nmap and it seems to be true</p>
+
+<p><img src="images/thm_advent/103.png" alt="" /></p>
+
+<p>lets visit the port</p>
+
+<p><img src="images/thm_advent/104.png" alt="" /></p>
+
+<p>lets search for the kibana version number</p>
+
+<p><img src="images/thm_advent/105.png" alt="" /></p>
+
+<p>On search about vulnerablities related to this version i found <a href="https://www.cvedetails.com/cve/CVE-2018-17246/">this</a> and also <a href="https://www.cyberark.com/threat-research-blog/execute-this-i-know-you-have-it/">this</a></p>
+
+<p>lets try it</p>
+
+<p><img src="images/thm_advent/106.png" alt="" /></p>
+
+<p>we can see the contents of /etc/passwd in the log file</p>
+
+<p><img src="images/thm_advent/107.png" alt="" /></p>
+
+<p>so lets try to view the root.txt file</p>
+
+<p><img src="images/thm_advent/108.png" alt="" /></p>
+
+<p>Hurray we got the flag lets submit it and I completed the 25 day series
+This series was very interesting and got to learn a lot</p>
+
+<p>Day 25 has <strong>no task</strong> so this ends the writup</p>
+
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=Try%20Hackme%20Advent%20of%20Cyber%20Day19%20to%20Day24%20Walkthrough&amp;url=https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24&amp;t=Try%20Hackme%20Advent%20of%20Cyber%20Day19%20to%20Day24%20Walkthrough" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/about.jpg')"><span class="screen-reader-text">Nirmit Shah's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Nirmit Shah</h2>
+        <div class="author-bio"><p>Nirmit is a programmer, noob-hacker, a member of Cyberlabs, IIT (ISM) Dhanbad.</p>
+</div>
+        
+        <span class="author-location">Pune, India</span>
+        
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+    <div class="comments-area">
+  <div class="comments-inner">
+    <h2 class="comments-title">Comments</h2>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus</a>.</noscript>
+  </div><!-- .comments-inner -->
+</div><!-- .comments-area -->
+
+<script type="text/javascript">
+  var disqus_shortname = 'my-blog-npmbtu8spk';
+  var disqus_developer = 0;
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/Nirmits09888706" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/naughtyboy191" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/nirmit-shah-35822a146" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>© Naughtyb0y all rights reserved.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

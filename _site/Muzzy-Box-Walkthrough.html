@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muzzybox boot2root Walkthrough</title>
+  <meta name="description" content="Just a simple boot2root vm walkthrough">
+  <link rel="canonical" href="https://naughtyboy-is-pro.netlify.com/Muzzy-Box-Walkthrough">
+  <link rel="alternate" type="application/rss+xml" title="Naughtyb0y&#39;s Blog Feed"
+    href="https://naughtyboy-is-pro.netlify.com/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Naughtyb0y's Blog</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-03-06">March 6, 2020</time>
+      <h1 class="post-title">Muzzybox boot2root Walkthrough</h1>
+      <div class="post-meta">
+        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags/#Vulnhub" rel="tag">Vulnhub</a>, <a href="/tags/#boot2root" rel="tag">boot2root</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/images/muzzybox/front.png" alt="Muzzybox boot2root Walkthrough">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <!--more-->
+<p>So one time for one more box will complete the tryhackme advent of cyber in coming 2 days just bored of those challenges</p>
+
+<p>so I came across this beginner box on google so though let me walk you through it 
+the download link to the box is given below</p>
+
+<p><a href="https://drive.google.com/file/d/1yFKVD_bDvzMp66ewOmyihXZ-_RZ8yGOs/view?usp=sharing">box Download</a></p>
+
+<p>Lets start !!</p>
+
+<p>First step as always is Netdiscover 
+So the IP address to attack is <strong>192.168.43.227</strong></p>
+
+<p><img src="images/muzzybox/1.png" alt="" /></p>
+
+<p>now while running the nmap scan I thought that lets check if there is anything by default at port 80 and yes i was right i got a link to <em>index.txt</em> file</p>
+
+<p><img src="images/muzzybox/2.png" alt="" /></p>
+
+<p>On checking the file it just gave out the tasks to perform in order to root the box</p>
+
+<p><img src="images/muzzybox/3.png" alt="" /></p>
+
+<p>Lets go to the port mentioned in the first task 
+We are greeted with the following site</p>
+
+<p><img src="images/muzzybox/4.png" alt="" /></p>
+
+<p>the idcard.png looked something like this 
+<img src="images/muzzybox/5.png" alt="" /></p>
+
+<p>after hours of enumeration and brainfuck(checking for hidden directries using gobuster and then trying nikto and many other recon tools I was so frustated that I went on to watch <em>Jumanji</em>)
+After a short break I was once again trying what to 
+Then I thought of editing the <em>idcard.png</em> file as specified on the website and also there was mention of <strong><em>nosql</em></strong> on the website ,so I went to nosql payload all things <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/Intruder/NoSQL.txt">link</a> and copied a given command in the name tag</p>
+
+<p>And with the help of my great photo editing skills i got this id card</p>
+
+<p><img src="images/muzzybox/6.png" alt="" /></p>
+
+<p>uploading it gave me somewhat of a flag so i]I left it there and moved on to next task as I was frustrated from it</p>
+
+<p><img src="images/muzzybox/7.png" alt="" /></p>
+
+<p>flag1-<strong>P!N_!$_123-456-789}</strong>
+I think that trying different payloads would give different results so you can try it !!!</p>
+
+<p>Now moving on to the next task 
+visiting the specified url</p>
+
+<p><img src="images/muzzybox/8.png" alt="" /></p>
+
+<p>this looked somewhat like a jupyter notebook so trying to access the console to see the file present in the notebook directory when trying to ask for pin, trying <strong><em>123-456-789</em></strong> which we got in previous flag lets us open the console 
+now its basic enumeration</p>
+
+<p><img src="images/muzzybox/9.png" alt="" /></p>
+
+<p>And this is the second flag for us 
+flag2-<strong>N$cTF{R34D_F!L3_/home/webssti/noflag.txt}</strong></p>
+
+<p>based on the flag format the first flag will be
+flag1-<strong>N$cTF{<em>maybe_some_string</em>+P!N_!$_123-456-789}</strong></p>
+
+<p>lets move on to third task this was a <strong><em>trickier</em></strong> one
+on visiting the website we see that it prints anythin we supply to <strong>name</strong> parameter</p>
+
+<p><img src="images/muzzybox/10.png" alt="" /></p>
+
+<p>Event php too
+<img src="images/muzzybox/11.png" alt="" /></p>
+
+<p>so I searched for php injection tool on github and came across this <a href="https://github.com/epinna/tplmap">tool</a> 
+now I downloaded and set it up 
+and ran it and it showed that <strong>name</strong> parameter was vulnerable</p>
+
+<p><img src="images/muzzybox/12.png" alt="" /></p>
+
+<p>So we can also get a shell so re run the command
+We get a shell and read the file specified in the previous flag</p>
+
+<p><img src="images/muzzybox/13.png" alt="" /></p>
+
+<p>the file contents were about a ssh login creds so loggin in 
+lets try the <em>sudo ls</em> and <em>bash ls</em> commands but it didn’t help us checking the path
+and permission of <strong>sbin</strong> folder shows that it belongs to nsctf user and root group 
+<img src="images/muzzybox/15.png" alt="" /></p>
+
+<p>so we can make a file with name ls to read the content of final_flag.txt files whose path is specified in the challenge page and we start up the listener on our side and Bingo!! we got the flag</p>
+
+<p><img src="images/muzzybox/14.png" alt="" /></p>
+
+<p>Final flag-<strong>N$cTF{8!NG000!!!__Y0U_D!D_!T_80!!!}</strong></p>
+
+<p>So yup that was it !! <br />
+I spent 9 hours on this box despite this being a beginner box but at the end<br />
+<strong>Enumeration is the Key</strong></p>
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=Muzzybox%20boot2root%20Walkthrough&amp;url=https://naughtyboy-is-pro.netlify.com/Muzzy-Box-Walkthrough" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://naughtyboy-is-pro.netlify.com/Muzzy-Box-Walkthrough&amp;t=Muzzybox%20boot2root%20Walkthrough" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/about.jpg')"><span class="screen-reader-text">Nirmit Shah's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Nirmit Shah</h2>
+        <div class="author-bio"><p>Nirmit is a programmer, noob-hacker, a member of Cyberlabs, IIT (ISM) Dhanbad.</p>
+</div>
+        
+        <span class="author-location">Pune, India</span>
+        
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+    <div class="comments-area">
+  <div class="comments-inner">
+    <h2 class="comments-title">Comments</h2>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus</a>.</noscript>
+  </div><!-- .comments-inner -->
+</div><!-- .comments-area -->
+
+<script type="text/javascript">
+  var disqus_shortname = 'my-blog-npmbtu8spk';
+  var disqus_developer = 0;
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/Nirmits09888706" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/naughtyboy191" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/nirmit-shah-35822a146" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>© Naughtyb0y all rights reserved.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

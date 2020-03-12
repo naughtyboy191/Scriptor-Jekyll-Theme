@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UTCTF 2020 Writup</title>
+  <meta name="description" content="Just a simple writeup">
+  <link rel="canonical" href="https://naughtyboy-is-pro.netlify.com/UTCTF20-Writup">
+  <link rel="alternate" type="application/rss+xml" title="Naughtyb0y&#39;s Blog Feed"
+    href="https://naughtyboy-is-pro.netlify.com/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Naughtyb0y's Blog</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-03-09">March 9, 2020</time>
+      <h1 class="post-title">UTCTF 2020 Writup</h1>
+      <div class="post-meta">
+        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags/#CTF" rel="tag">CTF</a>, <a href="/tags/#Forensics" rel="tag">Forensics</a>, <a href="/tags/#Web" rel="tag">Web</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/images/utctf20/front.png" alt="UTCTF 2020 Writup">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <!--more-->
+<h2 id="observe-closelyforensics50-pts">Observe Closely(Forensics),50 pts</h2>
+
+<p>Running strings on the binary shows us a hidden_binary at the end of the png file 
+lets run binwalk 
+<img src="images/utctf20/1.png" alt="" /></p>
+
+<p>we can confirm that there is indeed a binary hidden inside the file lets extract and run it 
+<img src="images/utctf20/2.png" alt="" /></p>
+
+<p>we got the flag!!</p>
+
+<h2 id="1-frame-per-minuteforensics50-pts">1 Frame per Minute(Forensics),50 pts</h2>
+
+<p>As the SSTV was mentioned in the challenge description 
+It was similar to the <em>moonwalk</em> challenges in the picoCTF</p>
+
+<p>I used this mobile <a href="https://play.google.com/store/apps/details?id=xdsopl.robot36&amp;hl=en_IN">app</a> in auto-detect mode and let the audio play and I got the flag</p>
+
+<p><img src="images/utctf20/3.png" alt="" /></p>
+
+<h2 id="basicsforensics50-pts">[basics]Forensics,50 pts</h2>
+
+<p>we just check the file type of the file give and it just turns out to be text so we grep for our flag and get the flag</p>
+
+<p><img src="images/utctf20/4.png" alt="" /></p>
+
+<h2 id="spectreforensics50-pts">spectre(Forensics),50 pts</h2>
+
+<p>As the name gave the hint ,this must the challenge in which the flag is hidden in the spectrogram of the audio file</p>
+
+<p>firing up Sonic-Visualiser and plotting spectrogram gives us the flag
+<img src="images/utctf20/5.png" alt="" /></p>
+
+<h2 id="epic-admin-pwnweb-50-pts">epic admin pwn(Web), 50 pts</h2>
+
+<p>we are provided with the following login website vulnerable to SQLi</p>
+
+<p><img src="images/utctf20/6.png" alt="" /></p>
+
+<p>lets intercept the request with burp and use it with burp</p>
+
+<p><img src="images/utctf20/7.png" alt="" /></p>
+
+<p>now using sqlmap gets us the pass</p>
+
+<p><img src="images/utctf20/8.png" alt="" /></p>
+
+<h2 id="the-legend-of-hackerman-pt-1forensics50-pts">The Legend of Hackerman Pt. 1(Forensics),50 pts</h2>
+
+<p>so the png file is corrupted so lets compare the corrupted png with another png file
+we see that there is error in magic bytes so lets correct it</p>
+
+<p><img src="images/utctf20/9.png" alt="" /></p>
+
+<p><img src="images/utctf20/10.png" alt="" /></p>
+
+<p>now we can easily view the image</p>
+
+<p><img src="images/utctf20/11.png" alt="" /></p>
+
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=UTCTF%202020%20Writup&amp;url=https://naughtyboy-is-pro.netlify.com/UTCTF20-Writup" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://naughtyboy-is-pro.netlify.com/UTCTF20-Writup&amp;t=UTCTF%202020%20Writup" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/about.jpg')"><span class="screen-reader-text">Nirmit Shah's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Nirmit Shah</h2>
+        <div class="author-bio"><p>Nirmit is a programmer, noob-hacker, a member of Cyberlabs, IIT (ISM) Dhanbad.</p>
+</div>
+        
+        <span class="author-location">Pune, India</span>
+        
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+    <div class="comments-area">
+  <div class="comments-inner">
+    <h2 class="comments-title">Comments</h2>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus</a>.</noscript>
+  </div><!-- .comments-inner -->
+</div><!-- .comments-area -->
+
+<script type="text/javascript">
+  var disqus_shortname = 'my-blog-npmbtu8spk';
+  var disqus_developer = 0;
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/Nirmits09888706" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/naughtyboy191" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/nirmit-shah-35822a146" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>© Naughtyb0y all rights reserved.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

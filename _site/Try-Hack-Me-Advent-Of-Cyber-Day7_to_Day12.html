@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try Hackme Advent of Cyber Day7 to Day12 Walkthrough</title>
+  <meta name="description" content="Just a simple walkthrough">
+  <link rel="canonical" href="https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12">
+  <link rel="alternate" type="application/rss+xml" title="Naughtyb0y&#39;s Blog Feed"
+    href="https://naughtyboy-is-pro.netlify.com/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Naughtyb0y's Blog</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-03-05">March 5, 2020</time>
+      <h1 class="post-title">Try Hackme Advent of Cyber Day7 to Day12 Walkthrough</h1>
+      <div class="post-meta">
+        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags/#TryHackMe" rel="tag">TryHackMe</a>, <a href="/tags/#Advent_Of_Cyber" rel="tag">Advent_Of_Cyber</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/images/thm_advent/front.jpg" alt="Try Hackme Advent of Cyber Day7 to Day12 Walkthrough">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <!--more-->
+<p>So this is the continuation to the Advent_of_Cyber 25 part Series on <a href="https://tryhackme.com">https://tryhackme.com</a></p>
+
+<h2 id="day7task-12">Day7(Task 12)</h2>
+<p>here we have to do a nmap scan on the given ip and answer some question based on the scan results <strong>So_Ezzzz</strong></p>
+
+<p>I used the following command</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-v</span> <span class="nt">-sT</span> <span class="nt">-A</span>  10.10.231.143
+</code></pre></div></div>
+<p>some part of the log results are given below</p>
+
+<p><img src="images/thm_advent/27.png" alt="" /></p>
+
+<p>we see a http server on port <strong>999</strong>
+we access it on our browser to get the answer to the last question</p>
+
+<p><img src="images/thm_advent/28.png" alt="" /></p>
+
+<h2 id="day8task-13">Day8(Task 13)</h2>
+<p>So I have to find the port on which ssh is running on so I use the following command</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap <span class="nt">-v</span> <span class="nt">-p-</span> <span class="nt">--min-parallelism</span> 100  10.10.159.75
+</code></pre></div></div>
+<p>we get the port 65534 open and further scan reveals that it is running ssh</p>
+
+<p><img src="images/thm_advent/29.png" alt="" /></p>
+
+<p>lets ssh into it 
+we now use the following command to find <strong>SUID</strong> file with user root as the name of the challenge suggest 
+we use the command</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / <span class="nt">-user</span> root <span class="nt">-perm</span> <span class="nt">-4000</span> <span class="nt">-print</span> 2&gt;/dev/null
+</code></pre></div></div>
+<p><img src="images/thm_advent/30.png" alt="" /></p>
+
+<p>now the system-control binary looks interesting,on checking it out we find that it executes any command we supply as root so we can get both the flags using this binary</p>
+
+<p><img src="images/thm_advent/31.png" alt="" /></p>
+
+<p><img src="images/thm_advent/32.png" alt="" /></p>
+
+<p><strong><em>hackerman!!!</em></strong></p>
+
+<h2 id="day9task-14">Day9(Task 14)</h2>
+<p>This is a simple scripting task we just have to write a script to find the <strong>value</strong> by using <em>requests</em> and <em>json</em> module in python</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">path</span><span class="o">=</span><span class="s">"f"</span>
+<span class="n">host</span><span class="o">=</span><span class="s">"http://10.10.241.214:3000/"</span>
+<span class="n">value</span><span class="o">=</span><span class="s">""</span>
+
+<span class="k">while</span> <span class="mi">1</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+	<span class="n">response</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">host</span><span class="o">+</span><span class="n">path</span><span class="p">)</span>
+	<span class="c1"># print(response.text)
+</span>	<span class="n">json_data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+	<span class="n">path</span><span class="o">=</span><span class="n">json_data</span><span class="p">[</span><span class="s">"next"</span><span class="p">]</span>
+	<span class="k">if</span> <span class="n">path</span><span class="o">==</span><span class="s">"end"</span><span class="p">:</span>
+		<span class="k">break</span>
+	<span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="o">+</span><span class="n">json_data</span><span class="p">[</span><span class="s">"value"</span><span class="p">]</span>
+	<span class="c1"># print(value)
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
+<p>On running the script we get the flag</p>
+
+<h2 id="day10task-15">Day10(Task 15)</h2>
+
+<p>So this is basically intro to the metasploit framework</p>
+
+<p>lets start by basic nmap scans</p>
+
+<p><img src="images/thm_advent/36.png" alt="" /></p>
+
+<p>now running nikto to find the vulnerablity in the web server</p>
+
+<p><img src="images/thm_advent/40.png" alt="" /></p>
+
+<p>so we got a strut vulnerablity from nikto lets search for it in msfconsole</p>
+
+<p><img src="images/thm_advent/37.png" alt="" /></p>
+
+<p>configuring the exploit in the msfconsole and running it</p>
+
+<p><img src="images/thm_advent/35.png" alt="" /></p>
+
+<p>now finding the flag using basic regex</p>
+
+<p><img src="images/thm_advent/33.png" alt="" /></p>
+
+<p>and ssh pass from bash_history</p>
+
+<p><img src="images/thm_advent/34.png" alt="" /></p>
+
+<p>now logging into ssh using the credentials and finding the asked info</p>
+
+<p><img src="images/thm_advent/38.png" alt="" /></p>
+
+<p><img src="images/thm_advent/39.png" alt="" /></p>
+
+<h2 id="day11task-16">Day11(Task 16)</h2>
+<p>This Challenge introduces us to the basic file transfer and database service
+First of lets nmap scan the ip</p>
+
+<p><img src="images/thm_advent/42.png" alt="" /></p>
+
+<h3 id="task-1">Task 1</h3>
+<p>Here we have to read creds.txt from nfs of the server</p>
+
+<p><img src="images/thm_advent/41.png" alt="" /></p>
+
+<h3 id="task-2">Task 2</h3>
+<p>Here we login using creds as <strong>anonymous:anonymous</strong>
+and get the desired file</p>
+
+<p><img src="images/thm_advent/43.png" alt="" /></p>
+
+<p><img src="images/thm_advent/44.png" alt="" /></p>
+
+<h3 id="task-3">Task 3</h3>
+<p>Now login in to mysql database using the credentials found and look for useful data</p>
+
+<p><img src="images/thm_advent/45.png" alt="" /></p>
+
+<p>The task is Done <em>:)))</em></p>
+
+<h2 id="day12task-17">Day12(Task 17)</h2>
+
+<p>So in this challenge we are given a zip file, on unzipping it we find the following</p>
+
+<p><img src="images/thm_advent/49.png" alt="" /></p>
+
+<h3 id="ques-1">ques 1</h3>
+<p>we need to find the md5sum of note1 file which can be done easily in the terminal :smile:</p>
+
+<p><img src="images/thm_advent/46.png" alt="" /></p>
+
+<h3 id="ques-2">ques 2</h3>
+<p>we need to decrypt the gpg file and we are given the passphrase as <strong>25daysofchristmas</strong></p>
+
+<p><img src="images/thm_advent/47.png" alt="" /></p>
+
+<h3 id="ques-3">ques 3</h3>
+<p>we need to decrypt an encrypted text file using the given private rsa key 
+here google comes to my rescue we need to use <em>openssl rsautl</em></p>
+
+<p><img src="images/thm_advent/48.png" alt="" /></p>
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=Try%20Hackme%20Advent%20of%20Cyber%20Day7%20to%20Day12%20Walkthrough&amp;url=https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12&amp;t=Try%20Hackme%20Advent%20of%20Cyber%20Day7%20to%20Day12%20Walkthrough" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/about.jpg')"><span class="screen-reader-text">Nirmit Shah's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Nirmit Shah</h2>
+        <div class="author-bio"><p>Nirmit is a programmer, noob-hacker, a member of Cyberlabs, IIT (ISM) Dhanbad.</p>
+</div>
+        
+        <span class="author-location">Pune, India</span>
+        
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+    <div class="comments-area">
+  <div class="comments-inner">
+    <h2 class="comments-title">Comments</h2>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus</a>.</noscript>
+  </div><!-- .comments-inner -->
+</div><!-- .comments-area -->
+
+<script type="text/javascript">
+  var disqus_shortname = 'my-blog-npmbtu8spk';
+  var disqus_developer = 0;
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/Nirmits09888706" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/naughtyboy191" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/nirmit-shah-35822a146" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>© Naughtyb0y all rights reserved.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

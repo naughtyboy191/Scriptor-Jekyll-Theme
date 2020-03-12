@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try Hackme Advent of Cyber Day1 to Day6 Walkthrough</title>
+  <meta name="description" content="Just a simple walkthrough">
+  <link rel="canonical" href="https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6">
+  <link rel="alternate" type="application/rss+xml" title="Naughtyb0y&#39;s Blog Feed"
+    href="https://naughtyboy-is-pro.netlify.com/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Naughtyb0y's Blog</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-03-04">March 4, 2020</time>
+      <h1 class="post-title">Try Hackme Advent of Cyber Day1 to Day6 Walkthrough</h1>
+      <div class="post-meta">
+        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags/#TryHackMe" rel="tag">TryHackMe</a>, <a href="/tags/#Advent_Of_Cyber" rel="tag">Advent_Of_Cyber</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/images/thm_advent/front.jpg" alt="Try Hackme Advent of Cyber Day1 to Day6 Walkthrough">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <!--more-->
+<p>So this is a website where you can get man challenges and box that you can root to improve your knowledge.
+Today I am going to solve the Advent_Of_Cyber  the 25 days challenge for complete beginners
+The link is given below
+<a href="https://tryhackme.com/dashboard">https://tryhackme.com/dashboard</a></p>
+<h2 id="day-1task-6">Day 1(Task 6)</h2>
+<p>So we are given with a login website and we have to register on it using any credentials you want</p>
+
+<p><img src="images/thm_advent/1.png" alt="" /></p>
+
+<p>After loggin in we have the following screen inspecting the cookies on the website we have the following results</p>
+
+<p><img src="images/thm_advent/2.png" alt="" /></p>
+
+<p>we have an cookie <strong>authid</strong> and it seems to be urlencoded and base64 encoded</p>
+
+<p><img src="images/thm_advent/3.png" alt="" /></p>
+
+<p>On decoding it we have authid=<strong>ghi##########</strong> 
+here the hidden part show the constant part of cookie</p>
+
+<p>so now we change the user to mcinventory and forge the cookie and inject it into the browser 
+authid=<em>mcinventory##########</em></p>
+
+<p><img src="images/thm_advent/4.png" alt="" /></p>
+
+<p>so now we have the answers for Task 6</p>
+
+<h2 id="day2task-7">Day2(Task 7)</h2>
+
+<p>Now we are give a url and we have to find the hidden directries at the given url 
+using gobuster for the job</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gobuster <span class="nt">-u</span> http://&lt;ur-machine-ip&gt;:3000 <span class="nt">-w</span> /usr/share/dirb/common.txt
+</code></pre></div></div>
+
+<p><img src="images/thm_advent/5.png" alt="" /></p>
+
+<p>now on to the directory we get a admin login page 
+looking at the source we have</p>
+
+<p><img src="images/thm_advent/6.png" alt="" /></p>
+
+<p>searching for the repository on github</p>
+
+<p><img src="images/thm_advent/7.png" alt="" /></p>
+
+<p>now entering the default creds</p>
+
+<p>And We have successfully completed the task :)</p>
+
+<h2 id="day3task-8">Day3(Task 8)</h2>
+<p>This is a forensics challenge we have to basically just answer the questions on the site by looking at the pcap file</p>
+<h3 id="for-ques-1">For ques 1</h3>
+
+<p><img src="images/thm_advent/8.png" alt="" /></p>
+
+<p>###for ques 2</p>
+
+<p><img src="images/thm_advent/9.png" alt="" /></p>
+
+<p>###for ques 3
+we have to save the hash found in the output above and crack the hash with hashcat using rockyou.txt as given in the hint</p>
+
+<p><img src="images/thm_advent/10.png" alt="" /></p>
+
+<p>One more Day complete :)</p>
+
+<h2 id="day4task-9">Day4(Task 9)</h2>
+
+<p>This task is about basic understanding of linux and moving around in linux</p>
+
+<h3 id="ques-1">ques 1</h3>
+<p>to see number of visible files  <strong>serioulsy :(</strong></p>
+
+<p><img src="images/thm_advent/11.png" alt="" /></p>
+
+<h3 id="ques-2">ques 2</h3>
+<p>use cat to see the contest <em>EzPz</em></p>
+
+<p><img src="images/thm_advent/12.png" alt="" /></p>
+
+<h3 id="ques-3">ques 3</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-r</span> password
+</code></pre></div></div>
+<p>using the command about the grep <em>recursively</em>
+this help us save time rather that perform grep on each file</p>
+
+<p><img src="images/thm_advent/13.png" alt="" /></p>
+
+<h3 id="ques-4">ques 4</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-r</span> <span class="s1">'[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'</span>
+</code></pre></div></div>
+<p>here using a regex string we can easily carve out the IP address</p>
+
+<p><img src="images/thm_advent/14.png" alt="" /></p>
+
+<h3 id="ques-5">ques 5</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /etc/passwd |grep /bin/bash
+</code></pre></div></div>
+<p>using this we can see how many users have shell access to the machine</p>
+
+<p><img src="images/thm_advent/15.png" alt="" /></p>
+
+<h3 id="ques-6">ques 6</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sha1sum </span>file8
+</code></pre></div></div>
+<p>using the <strong>sha1sum</strong> command to get the hash</p>
+
+<p><img src="images/thm_advent/16.png" alt="" /></p>
+
+<h3 id="ques-7">ques 7</h3>
+<p>Since we don’t have permissions to read /etc/shadow file 
+so we find other files having string shadow in it and to which we have permission to read</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / <span class="nt">-name</span> <span class="s2">"*shadow*"</span> 2&gt;/dev/null
+</code></pre></div></div>
+
+<p><img src="images/thm_advent/17.png" alt="" /></p>
+
+<p>we get an interesting shadow.bak file which we can so reading it we find the mcsysadmin’s password hash</p>
+
+<p><img src="images/thm_advent/18.png" alt="" /></p>
+
+<h2 id="day5task-10">Day5(Task 10)</h2>
+<p>This is standard <strong>OSINT</strong> introductory challenge</p>
+
+<p>we are given with an jpeg image running exiftool on it gets us the username as the creator tag in exiftool output</p>
+
+<p><img src="images/thm_advent/19.png" alt="" /></p>
+
+<p>Now using any osint username finder try to find the link to username accounts</p>
+
+<p><img src="images/thm_advent/20.png" alt="" /></p>
+
+<p><img src="images/thm_advent/21.png" alt="" /></p>
+
+<p>We got the username</p>
+
+<p>Lets checkout the twitter account with the found username</p>
+
+<p><img src="images/thm_advent/22.png" alt="" /></p>
+
+<p>We get the answers to the first three questions :)</p>
+
+<p>now lets go to the wordpress site linked in the description</p>
+
+<p>There was a mention of wayback machine in the hints section lets look at the results of wayback machine</p>
+
+<p><img src="images/thm_advent/23.png" alt="" /></p>
+
+<p>lets check the oldest snapshot of the website we get the answers to other to question by viewing the oldest version of this website</p>
+
+<h2 id="day6task-11">Day6(Task 11)</h2>
+<p>We are given a pcap file and asked some questions about the data in the pcap</p>
+
+<h3 id="ques-1-1">ques 1</h3>
+
+<p>here on following through the udp  streams we get a a string that seems to encoded so we decode it to get the answer</p>
+
+<p><img src="images/thm_advent/24.png" alt="" /></p>
+
+<p><img src="images/thm_advent/25.png" alt="" /></p>
+
+<h3 id="ques-2-1">ques 2</h3>
+
+<p>Looking through the http request we see that there is a zip file and a jpeg image so we export them from wireshark</p>
+
+<p><img src="images/thm_advent/26.png" alt="" /></p>
+
+<p>We can use <strong>steghide</strong> with empty password to get the data from jpeg file</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>steghide extract <span class="nt">-sf</span> TryHackMe.jpeg
+</code></pre></div></div>
+<h3 id="ques-3-1">ques 3</h3>
+
+<p>we can use <strong>John</strong> to crack the password of zip file</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zip2john christmaslists.zip <span class="o">&gt;</span> <span class="nb">hash
+</span>john <span class="nb">hash</span>
+</code></pre></div></div>
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=Try%20Hackme%20Advent%20of%20Cyber%20Day1%20to%20Day6%20Walkthrough&amp;url=https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://naughtyboy-is-pro.netlify.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6&amp;t=Try%20Hackme%20Advent%20of%20Cyber%20Day1%20to%20Day6%20Walkthrough" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/about.jpg')"><span class="screen-reader-text">Nirmit Shah's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Nirmit Shah</h2>
+        <div class="author-bio"><p>Nirmit is a programmer, noob-hacker, a member of Cyberlabs, IIT (ISM) Dhanbad.</p>
+</div>
+        
+        <span class="author-location">Pune, India</span>
+        
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+    <div class="comments-area">
+  <div class="comments-inner">
+    <h2 class="comments-title">Comments</h2>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus</a>.</noscript>
+  </div><!-- .comments-inner -->
+</div><!-- .comments-area -->
+
+<script type="text/javascript">
+  var disqus_shortname = 'my-blog-npmbtu8spk';
+  var disqus_developer = 0;
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/Nirmits09888706" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/naughtyboy191" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/nirmit-shah-35822a146" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>© Naughtyb0y all rights reserved.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>

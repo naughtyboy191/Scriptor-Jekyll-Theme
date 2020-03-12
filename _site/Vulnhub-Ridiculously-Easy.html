@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vulnhub Rickdiculously Easy Walkthrough</title>
+  <meta name="description" content="Just a simple boot2root vm walkthrough">
+  <link rel="canonical" href="https://naughtyboy-is-pro.netlify.com/Vulnhub-Ridiculously-Easy">
+  <link rel="alternate" type="application/rss+xml" title="Naughtyb0y&#39;s Blog Feed"
+    href="https://naughtyboy-is-pro.netlify.com/feed.xml">
+  
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%7CNoto+Serif:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="page" class="site">
+    <div class="inner">
+      <header class="site-header">
+  
+  <p class="site-title"><a class="logo-text" href="/">Naughtyb0y's Blog</a></p>
+  
+  <nav class="site-navigation">
+    <div class="site-navigation-wrap">
+      <h2 class="screen-reader-text">Main navigation</h2>
+      <ul class="menu">
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/">Home</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/about/">About</a>
+        </li>
+        
+        
+        
+        <li class="menu-item ">
+          <a class="" href="/tags/">Tags</a>
+        </li>
+        
+      </ul><!-- .menu -->
+      <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span
+          class="icon-close" aria-hidden="true"></span></button>
+    </div><!-- .site-navigation-wrap -->
+  </nav><!-- .site-navigation -->
+  <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+</header>
+
+
+      <main class="main-content fadeInDown delay_075s">
+
+  <article class="post">
+    <header class="post-header">
+      <time class="post-date" datetime="2020-03-06">March 6, 2020</time>
+      <h1 class="post-title">Vulnhub Rickdiculously Easy Walkthrough</h1>
+      <div class="post-meta">
+        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags/#Vulnhub" rel="tag">Vulnhub</a>, <a href="/tags/#boot2root" rel="tag">boot2root</a></span>
+      </div><!-- .post-meta -->
+      
+      <figure class="post-thumbnail image-card width-wide">
+        <img src="/images/vuln_rid-easy/front.jpeg" alt="Vulnhub Rickdiculously Easy Walkthrough">
+      </figure><!-- .post-thumbnail -->
+      
+    </header><!-- .post-header -->
+    <div class="post-content">
+      <!--more-->
+<h1 id="so-this-is-my-first-box-so-there-may-be-some-mistakes-">So this is my first box so there may be some mistakes :)</h1>
+<p>the link to the box
+<a href="https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/">https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/</a></p>
+
+<p>Lets start with <em>netsdicover</em>
+I got the IP of box as <strong>192.168.243.4</strong>
+<img src="images/vuln_rid-easy/1.png" alt="" /></p>
+
+<p>I thought that there may be a ftp service running as I read about it some of the other boxes writups
+And yeah there is a flag</p>
+
+<p><strong>flag-1</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{Whoa this is unexpected} - 10 points
+</code></pre></div></div>
+<p><strong><em>points=10/130</em></strong></p>
+
+<p>The nmap scan results are</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-06 21:06 IST
+Nmap scan report for 192.168.243.4
+Host is up (0.00032s latency).
+Not shown: 65528 closed ports
+PORT      STATE SERVICE    VERSION
+21/tcp    open  ftp        vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 0        0              42 Aug 22  2017 FLAG.txt
+|_drwxr-xr-x    2 0        0               6 Feb 12  2017 pub
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:192.168.243.3
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp    open  ssh?
+| fingerprint-strings: 
+|   NULL: 
+|_    Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
+|_ssh-hostkey: ERROR: Script execution failed (use -d to debug)
+80/tcp    open  http       Apache httpd 2.4.27 ((Fedora))
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.4.27 (Fedora)
+|_http-title: Morty's Website
+9090/tcp  open  http       Cockpit web service
+|_http-title: Did not follow redirect to https://192.168.243.4:9090/
+13337/tcp open  unknown
+| fingerprint-strings: 
+|   NULL: 
+|_    FLAG:{TheyFoundMyBackDoorMorty}-10Points
+22222/tcp open  ssh        OpenSSH 7.5 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 b4:11:56:7f:c0:36:96:7c:d0:99:dd:53:95:22:97:4f (RSA)
+|   256 20:67:ed:d9:39:88:f9:ed:0d:af:8c:8e:8a:45:6e:0e (ECDSA)
+|_  256 a6:84:fa:0f:df:e0:dc:e2:9a:2d:e7:13:3c:e7:50:a9 (ED25519)
+60000/tcp open  tcpwrapped
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.80%I=7%D=3/6%Time=5E626E02%P=x86_64-pc-linux-gnu%r(NULL,
+SF:42,"Welcome\x20to\x20Ubuntu\x2014\.04\.5\x20LTS\x20\(GNU/Linux\x204\.4\
+SF:.0-31-generic\x20x86_64\)\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port13337-TCP:V=7.80%I=7%D=3/6%Time=5E626E02%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,29,"FLAG:{TheyFoundMyBackDoorMorty}-10Points\n");
+MAC Address: 08:00:27:BF:52:95 (Oracle VirtualBox virtual NIC)
+Device type: general purpose
+Running: Linux 3.X|4.X
+OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
+OS details: Linux 3.2 - 4.9
+Network Distance: 1 hop
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 55.73 seconds
+</code></pre></div></div>
+<p>We can see that ports 21,22,80,9090,13337,22222,60000 are open and we found another flag in the scan itself</p>
+
+<p><strong>flag-2</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{TheyFoundMyBackDoorMorty} - 10 points
+</code></pre></div></div>
+<p><strong><em>points=20/130</em></strong></p>
+
+<p>next I ran nikto to get the hidden directories in the IP address</p>
+
+<p><img src="images/vuln_rid-easy/2.png" alt="" /></p>
+
+<p>And yes there was a <em>/passwords</em> directory present 
+checking it out gives the 3rd flag</p>
+
+<p><img src="images/vuln_rid-easy/3.png" alt="" /></p>
+
+<p><img src="images/vuln_rid-easy/4.png" alt="" /></p>
+
+<p><strong>flag-3</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{Yeah d- just don't do it.} - 10 points
+</code></pre></div></div>
+<p><strong><em>points=30/130</em></strong></p>
+
+<p>Lets checkout the passwords.html file 
+nothing interesting it seems</p>
+
+<p><img src="images/vuln_rid-easy/5.png" alt="" /></p>
+
+<p>but its source has a password for us !!</p>
+
+<p><img src="images/vuln_rid-easy/6.png" alt="" /></p>
+
+<p>Lets checkout the <em>robots.txt</em> file ,root_shell is not even a bit useful but the tracertool-cgi is vulnerable to command injection</p>
+
+<p><img src="images/vuln_rid-easy/7.png" alt="" /></p>
+
+<p>I found that using cat command showed a picture of cat it the system so i used head and tail to view /etc/passwd
+commands used</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"; head /etc/passwd;
+"; tail /etc/passwd;
+</code></pre></div></div>
+
+<p><img src="images/vuln_rid-easy/9.png" alt="" /></p>
+
+<p><img src="images/vuln_rid-easy/10.png" alt="" /></p>
+
+<p>This shows us that there are 3 users with shell access
+<em>RickSanchez,Summer,Morty</em>
+And the password <strong>winter</strong> would most likely be the password for user <em>Summer</em></p>
+
+<p><img src="images/vuln_rid-easy/11.png" alt="" /></p>
+
+<p>Bingo!
+We got another flag</p>
+
+<p><strong>flag-4</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{Get off the high road Summer} - 10 points
+</code></pre></div></div>
+<p><strong><em>points=40/130</em></strong></p>
+
+<p>Checking out other users’ files 
+For Morty we have a jpeg image and zip file 
+The zip is password protected my best guess was that the password was hidden in the jpg file since strings was not installed in the system I had to use the head command and I got the password as <strong><em>Meeseek</em></strong>
+and there was another flag for us</p>
+
+<p><img src="images/vuln_rid-easy/12.png" alt="" /></p>
+
+<p><strong>flag-5</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{131333} - 20 points
+</code></pre></div></div>
+<p><strong><em>points=60/130</em></strong></p>
+
+<p>Now it was time for <em>RickSanchez</em>
+there was a binary <strong>safe</strong> in the directory on running I found that the binary needed an argument
+based on prev flag I entered <em>131333</em> as the argument and <strong><em>BOOM</em></strong> I got another flag</p>
+
+<p><img src="images/vuln_rid-easy/13.png" alt="" /></p>
+
+<p><strong>flag-6</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{And Awwaaaaayyyy we Go!} - 20 points
+</code></pre></div></div>
+<p><strong><em>points=80/130</em></strong></p>
+
+<p>there was also a hint to RickSanchez’s ssh password 
+the band name was <strong><em>The Flesh Curtains</em></strong>(Found it on Google FYI:Not a RickNMorty Fan)
+Now lets generate the bruteforce password list I used crunch</p>
+
+<p><img src="images/vuln_rid-easy/14.png" alt="" /></p>
+
+<p>After generating the wordlist i let it run with hydra and yup i got the pass</p>
+
+<p><img src="images/vuln_rid-easy/15.png" alt="" /></p>
+
+<p>the pass was <strong>P7Curtains</strong></p>
+
+<p>On logging in I checked for root privileges 
+and elevated to root easily and read the flag</p>
+
+<p><img src="images/vuln_rid-easy/16.png" alt="" /></p>
+
+<p><strong>flag-7</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{Ionic Defibrilator} - 30 points
+</code></pre></div></div>
+<p><strong><em>points=110/130</em></strong></p>
+
+<p>Now lets focus on remaining open ports 
+On checking out 9090 
+it directly gave us the flag</p>
+
+<p><img src="images/vuln_rid-easy/8.png" alt="" /></p>
+
+<p><strong>flag-8</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{THERE IS NO ZEUS,IN YOUR FACE!} - 10 points
+</code></pre></div></div>
+<p><strong><em>points=120/130</em></strong></p>
+
+<p>And now the last port unchecked was 60000 on connecting to it using netcat gave us some kind of shell and i read the flag no worries</p>
+
+<p><img src="images/vuln_rid-easy/17.png" alt="" /></p>
+
+<p><strong>flag-9</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FLAG{Flip the pickle Morty!} - 10 points
+</code></pre></div></div>
+<p><strong><em>points=130/130</em></strong></p>
+
+<p>Yep this was a great box for me as I completed it within a day despite it being my first box as I had read writup about other boxes previouly it helped me a lot</p>
+
+<p><em>BYE!!</em></p>
+
+    </div><!-- .post-content -->
+    <div class="post-share">
+      <span>Share:</span>
+      <a target="_blank"
+        href="https://twitter.com/intent/tweet?text=Vulnhub%20Rickdiculously%20Easy%20Walkthrough&amp;url=https://naughtyboy-is-pro.netlify.com/Vulnhub-Ridiculously-Easy" rel="noopener">Twitter</a>
+      <a target="_blank"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://naughtyboy-is-pro.netlify.com/Vulnhub-Ridiculously-Easy&amp;t=Vulnhub%20Rickdiculously%20Easy%20Walkthrough" rel="noopener">Facebook</a>
+    </div><!-- .share-post -->
+    <div class="author-box">
+      
+      <div class="author-avatar" style="background-image: url('images/about.jpg')"><span class="screen-reader-text">Nirmit Shah's Picture</span></div>
+      
+      <div class="author-details">
+        <h2 class="author-title">About Nirmit Shah</h2>
+        <div class="author-bio"><p>Nirmit is a programmer, noob-hacker, a member of Cyberlabs, IIT (ISM) Dhanbad.</p>
+</div>
+        
+        <span class="author-location">Pune, India</span>
+        
+        
+      </div><!-- .author-details -->
+    </div><!-- .author-box -->
+  </article><!-- .post -->
+
+  
+    <div class="comments-area">
+  <div class="comments-inner">
+    <h2 class="comments-title">Comments</h2>
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+        Disqus</a>.</noscript>
+  </div><!-- .comments-inner -->
+</div><!-- .comments-area -->
+
+<script type="text/javascript">
+  var disqus_shortname = 'my-blog-npmbtu8spk';
+  var disqus_developer = 0;
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+  
+
+</main><!-- .main-content -->
+      <footer class="site-footer">
+  <div class="offsite-links">
+    
+      
+<a href="https://twitter.com/Nirmits09888706" target="_blank" rel="noopener">
+  <span class="fa-twitter" aria-hidden="true"></span>
+  <span class="screen-reader-text">Twitter</span>
+</a>
+
+<a href="https://github.com/naughtyboy191" target="_blank" rel="noopener">
+  <span class="fa-github" aria-hidden="true"></span>
+  <span class="screen-reader-text">GitHub</span>
+</a>
+
+<a href="https://www.linkedin.com/in/nirmit-shah-35822a146" target="_blank" rel="noopener">
+  <span class="fa-linkedin" aria-hidden="true"></span>
+  <span class="screen-reader-text">LinkedIn</span>
+</a>
+
+    
+  </div><!-- .offsite-links -->
+  <div class="footer-bottom">
+    <div class="site-info">
+      <p>© Naughtyb0y all rights reserved.</p>
+
+    </div><!-- .site-info -->
+    <a href="#page" id="back-to-top" class="back-to-top"><span class="screen-reader-text">Back to the top </span>&#8593;</a>
+  </div><!-- .footer-bottom -->
+</footer><!-- .site-footer -->
+
+    </div><!-- .inner -->
+  </div><!-- .site -->
+
+  <!-- Scripts -->
+  
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+  
+  <script src="/assets/js/plugins.js"></script>
+  <script src="/assets/js/custom.js"></script>
+
+</body>
+</html>
