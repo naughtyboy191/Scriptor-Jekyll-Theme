@@ -18,7 +18,7 @@ description: "Scriptor is a minimal, clean, modern & responsive Jekyll theme for
 baseurl: ""
 
 # The base hostname & protocol of your site for where absolute urls are needed.
-
+url: "https://naughtyboy-is-pro.netlify.com"
 
 # Favicon
 favicon: images/favicon.png
@@ -69,3 +69,9 @@ markdown: kramdown
 sass:
   sass_dir: _sass
   style: compressed
+
+#site author details
+author:
+  name: "Nirmit Shah"
+  email: "nirmitshah191@gmail.com"
+  url: "https://naughtyboy191.github.io/hacker-blog/"
