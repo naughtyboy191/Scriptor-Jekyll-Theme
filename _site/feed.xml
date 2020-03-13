@@ -5,13 +5,14 @@
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
         <link>https://naughtyb0y.onrender.com/</link>
         <atom:link href="https://naughtyb0y.onrender.com/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 14 Mar 2020 03:08:53 +0530</pubDate>
-        <lastBuildDate>Sat, 14 Mar 2020 03:08:53 +0530</lastBuildDate>
+        <pubDate>Sat, 14 Mar 2020 03:11:27 +0530</pubDate>
+        <lastBuildDate>Sat, 14 Mar 2020 03:11:27 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
         
             <item>
                 <title>Try Hackme Mr Robot CTF Walkthrough</title>
-                <description>&lt;p&gt;So we start with basic enumeration&lt;/p&gt;
+                <description>&lt;!--more--&gt;
+&lt;p&gt;So we start with basic enumeration&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 

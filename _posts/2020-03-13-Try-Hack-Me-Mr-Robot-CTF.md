@@ -6,7 +6,7 @@ date: 2020-03-13
 feature_image: images/thm_mr_robot/front.png
 tags: [TryHackMe]
 ---
-
+<!--more-->
 So we start with basic enumeration
 
 ![](images/thm_mr_robot/1.png)

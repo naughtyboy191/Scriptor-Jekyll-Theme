@@ -80,76 +80,9 @@
     </header><!-- .post-header -->
     <div class="post-content">
       
-      <p>So we start with basic enumeration</p>
-
-<p><img src="images/thm_mr_robot/1.png" alt="" /></p>
-
-<p>So ports 80,443 is open nothing special here lets check the site</p>
-
-<p><img src="images/thm_mr_robot/2.png" alt="" /></p>
-
-<p>nothing to find here to lets check the robots.txt file</p>
-
-<p><img src="images/thm_mr_robot/3.png" alt="" /></p>
-
-<p>yup there is the first flag for us
-lets get it 
-<img src="images/thm_mr_robot/15.png" alt="" /></p>
-
-<p>now we download the dictionary file 
-running nikto</p>
-
-<p><img src="images/thm_mr_robot/7.png" alt="" /></p>
-
-<p>Nothing interesting here as well,now on running gobuster we got that it has Wordpress CMS so lets try for wp-login.php page</p>
-
-<p><img src="images/thm_mr_robot/4.png" alt="" /></p>
-
-<p>yup its there lets check for username from the dictionary 
-it was elliot kind of guessed it before</p>
-
-<p><img src="images/thm_mr_robot/6.png" alt="" /></p>
-
-<p>now using burp to capture the requests and use hydra</p>
-
-<p><img src="images/thm_mr_robot/5.png" alt="" /></p>
-
-<p>Since the dictionary had lot of duplicates I used used uniq command to make new dictionary so number of tries we have to do be less</p>
-
-<p><img src="images/thm_mr_robot/16.png" alt="" /></p>
-
-<p>lets login using the found pass we get the dashboard</p>
-
-<p><img src="images/thm_mr_robot/8.png" alt="" /></p>
-
-<p>Lets check the editor ,we can edit the 404.php to get php rev-shell lets change the contents of 404.php and get the shell</p>
-
-<p><img src="images/thm_mr_robot/10.png" alt="" /></p>
-
-<p>Stabilising the shell using python</p>
-
-<p><img src="images/thm_mr_robot/9.png" alt="" /></p>
-
-<p>Couldn’t read the key but got the md5 hash of the user lets crack it online</p>
-
-<p><img src="images/thm_mr_robot/11.png" alt="" /></p>
-
-<p>Lets login and get key 2</p>
-
-<p><img src="images/thm_mr_robot/12.png" alt="" /></p>
-
-<p>now checking for vulnerable binaries got nmap 
-<img src="images/thm_mr_robot/13.png" alt="" /></p>
-
-<p>using nmap –interactive to get the shell
-as the nmap version being used is very old</p>
-
-<p><img src="images/thm_mr_robot/14.png" alt="" /></p>
-
-<p>got the key 3 as well was a good box learnt about how to use nmap vulnerability</p>
-
-<p><b><center>Happy Hacking</center></b></p>
-
+      
+      <p class="read-more"><a href="/Try-Hack-Me-Mr-Robot-CTF" class="read-more-link">Continue reading &rarr;</a>
+      </p>
       
     </div><!-- .post-content -->
   </article><!-- .post -->
