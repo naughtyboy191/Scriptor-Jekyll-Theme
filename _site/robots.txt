@@ -1,1 +1,1 @@
-Sitemap: http://localhost:8000/sitemap.xml
+Sitemap: https://naughtyb0y.onrender.com/sitemap.xml

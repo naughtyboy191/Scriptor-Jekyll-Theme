@@ -3,11 +3,92 @@
     <channel>
         <title>Naughtyb0y's Blog</title>
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
-        <link>http://localhost:8000/</link>
-        <atom:link href="http://localhost:8000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 13 Mar 2020 01:49:25 +0530</pubDate>
-        <lastBuildDate>Fri, 13 Mar 2020 01:49:25 +0530</lastBuildDate>
+        <link>https://naughtyb0y.onrender.com/</link>
+        <atom:link href="https://naughtyb0y.onrender.com/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Sat, 14 Mar 2020 03:08:53 +0530</pubDate>
+        <lastBuildDate>Sat, 14 Mar 2020 03:08:53 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
+        
+            <item>
+                <title>Try Hackme Mr Robot CTF Walkthrough</title>
+                <description>&lt;p&gt;So we start with basic enumeration&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So ports 80,443 is open nothing special here lets check the site&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;nothing to find here to lets check the robots.txt file&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;yup there is the first flag for us
+lets get it 
+&lt;img src=&quot;images/thm_mr_robot/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;now we download the dictionary file 
+running nikto&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nothing interesting here as well,now on running gobuster we got that it has Wordpress CMS so lets try for wp-login.php page&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;yup its there lets check for username from the dictionary 
+it was elliot kind of guessed it before&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;now using burp to capture the requests and use hydra&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since the dictionary had lot of duplicates I used used uniq command to make new dictionary so number of tries we have to do be less&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets login using the found pass we get the dashboard&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets check the editor ,we can edit the 404.php to get php rev-shell lets change the contents of 404.php and get the shell&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Stabilising the shell using python&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Couldn’t read the key but got the md5 hash of the user lets crack it online&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets login and get key 2&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;now checking for vulnerable binaries got nmap 
+&lt;img src=&quot;images/thm_mr_robot/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;using nmap –interactive to get the shell
+as the nmap version being used is very old&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;got the key 3 as well was a good box learnt about how to use nmap vulnerability&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Fri, 13 Mar 2020 00:00:00 +0530</pubDate>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Mr-Robot-CTF</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Mr-Robot-CTF</guid>
+                
+                <category>TryHackMe</category>
+                
+                
+            </item>
         
             <item>
                 <title>Try Hackme BoilerCTF Walkthrough</title>
@@ -105,8 +186,8 @@ and we can so we use the following command to get the flag
 Hope you learnt something! &lt;strong&gt;:)&lt;/strong&gt;&lt;/p&gt;
 </description>
                 <pubDate>Thu, 12 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Try-Hack-Me-BoilerCTF-Walkthrough</link>
-                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-BoilerCTF-Walkthrough</guid>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-BoilerCTF-Walkthrough</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-BoilerCTF-Walkthrough</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -169,8 +250,8 @@ its &lt;strong&gt;UnileverWifi&lt;/strong&gt;&lt;/p&gt;
 
 </description>
                 <pubDate>Wed, 11 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Try-Hack-Me-OhSINT</link>
-                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-OhSINT</guid>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-OhSINT</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-OhSINT</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -386,8 +467,8 @@ This series was very interesting and got to learn a lot&lt;/p&gt;
 
 </description>
                 <pubDate>Tue, 10 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</link>
-                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</guid>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -461,8 +542,8 @@ we see that there is error in magic bytes so lets correct it&lt;/p&gt;
 
 </description>
                 <pubDate>Mon, 09 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/UTCTF20-Writup</link>
-                <guid isPermaLink="true">http://localhost:8000/UTCTF20-Writup</guid>
+                <link>https://naughtyb0y.onrender.com/UTCTF20-Writup</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/UTCTF20-Writup</guid>
                 
                 <category>CTF</category>
                 
@@ -687,8 +768,8 @@ and the cookie.php file is very trivial one&lt;/p&gt;
 That’s it for today&lt;/p&gt;
 </description>
                 <pubDate>Sun, 08 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</link>
-                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</guid>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -796,8 +877,8 @@ I spent 9 hours on this box despite this being a beginner box but at the end&lt;
 &lt;strong&gt;Enumeration is the Key&lt;/strong&gt;&lt;/p&gt;
 </description>
                 <pubDate>Fri, 06 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Muzzy-Box-Walkthrough</link>
-                <guid isPermaLink="true">http://localhost:8000/Muzzy-Box-Walkthrough</guid>
+                <link>https://naughtyb0y.onrender.com/Muzzy-Box-Walkthrough</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Muzzy-Box-Walkthrough</guid>
                 
                 <category>Vulnhub</category>
                 
@@ -1020,8 +1101,8 @@ it directly gave us the flag&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;BYE!!&lt;/em&gt;&lt;/p&gt;
 </description>
                 <pubDate>Fri, 06 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Vulnhub-Ridiculously-Easy</link>
-                <guid isPermaLink="true">http://localhost:8000/Vulnhub-Ridiculously-Easy</guid>
+                <link>https://naughtyb0y.onrender.com/Vulnhub-Ridiculously-Easy</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Vulnhub-Ridiculously-Easy</guid>
                 
                 <category>Vulnhub</category>
                 
@@ -1182,8 +1263,8 @@ here google comes to my rescue we need to use &lt;em&gt;openssl rsautl&lt;/em&gt
 &lt;p&gt;&lt;img src=&quot;images/thm_advent/48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
                 <pubDate>Thu, 05 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</link>
-                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</guid>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -1374,175 +1455,12 @@ so we find other files having string shadow in it and to which we have permissio
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
                 <pubDate>Wed, 04 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</link>
-                <guid isPermaLink="true">http://localhost:8000/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</guid>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</guid>
                 
                 <category>TryHackMe</category>
                 
                 <category>Advent_Of_Cyber</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Shellpwn CTF 2020 Writup</title>
-                <description>&lt;!--more--&gt;
-&lt;h1 id=&quot;shellpwn2020&quot;&gt;Shellpwn2020&lt;/h1&gt;
-
-&lt;p&gt;So I was able to solve only 7 challenges in the ctf and all the challenges were very intersting ,so lets start with the forensics challenges&lt;/p&gt;
-
-&lt;h2 id=&quot;forensics&quot;&gt;Forensics&lt;/h2&gt;
-&lt;h3 id=&quot;challenge-hidden200&quot;&gt;Challenge-Hidden!,200&lt;/h3&gt;
-
-&lt;p&gt;So we are given a file which is a 7z archive so we extract it and as the challenge name suggest &lt;em&gt;hidden&lt;/em&gt; we look for hidden files in the extracted data and we get a .flag.txt file so we read it and get the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/shellpwnctf/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the flag is:-
-&lt;code class=&quot;highlighter-rouge&quot;&gt;shellctf{l00k_d3ep_1n_b1n@rY}&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;challenge-find-me200&quot;&gt;Challenge-Find me!,200&lt;/h3&gt;
-
-&lt;p&gt;The xml file give is a kml file which is used to save the google earth configurations ,so on loading up the xml file in google cloud we get the flag
-&lt;img src=&quot;images/shellpwnctf/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the flag was right there but there was confusion in chars so i faced a lot of time trying out the combinations&lt;/p&gt;
-
-&lt;p&gt;finally the flag was
-&lt;code class=&quot;highlighter-rouge&quot;&gt;shellctf{2E501L}&lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;scripting&quot;&gt;Scripting&lt;/h2&gt;
-
-&lt;h3 id=&quot;zipppppy200&quot;&gt;Zipppppy,200&lt;/h3&gt;
-&lt;p&gt;we are given with a file which is to extracted multiple times but the catch here is that everytime the file type is not same its different so we need to write a script to unzip it 
-I wrote a bash script as its short and easy&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;INPUT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;FTYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;file &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;INPUT&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$FTYPE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;POSIX tar&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TAR&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xOvf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; tmp
-    &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;tmp &lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$FTYPE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Zip archive data&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ZIP&quot;&lt;/span&gt;
-    unzip &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$FTYPE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bzip2 compressed&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ZIP&quot;&lt;/span&gt;
-    bzcat &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; tmp
-    &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;tmp &lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$FTYPE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gzip compressed data&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ZIP&quot;&lt;/span&gt;
-    zcat &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; tmp
-    &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;tmp &lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$FTYPE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;XZ compressed data&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ZIP&quot;&lt;/span&gt;
-    xzcat &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; tmp
-    &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;tmp &lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$FTYPE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;7-zip archive data&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;7ZIP&quot;&lt;/span&gt;
-    7z e &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$INPUT&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; 
-&lt;span class=&quot;k&quot;&gt;else
-    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;NOT RECOGNIZED&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;FTYPE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;and the run it like&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; ./unpack.sh flag&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;SO the flag is
-&lt;code class=&quot;highlighter-rouge&quot;&gt;shellctf{$cr1ptiNg_I$_fUn}&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;fasst250&quot;&gt;Fasst,250&lt;/h3&gt;
-
-&lt;p&gt;Here we just have to send the md5 hash of the strings provided by the server so I writup a quick python script to get the flag&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pwn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;hashlib&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;remote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;134.209.149.171&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hashlib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;md5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hexdigest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;		
-	&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt;
-	&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and we get the flag which is
-&lt;code class=&quot;highlighter-rouge&quot;&gt;shellctf{y0u_c@Ught_m3}&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;can-you-escape-me350&quot;&gt;Can you Escape me!,350&lt;/h3&gt;
-
-&lt;p&gt;so being honest i was not able to solve the chall within the ctf period but after the ctf was over i was able to solve it with a little help from a friend so it was basically a ssh jail where some keywords or letters were restricted but when i kept on trying i saw that the command &lt;em&gt;uniq&lt;/em&gt; was allowed but &lt;em&gt;flag.txt&lt;/em&gt; was blacklisted 
-easy way to get past this was to use &lt;em&gt;uniq flag.[a-z][a-z][a-z]&lt;/em&gt;
-it was showing command executed but i was not able to get the flag so i tried many things but it didn’t work so with the help of a friend he told that the catch was to simply eval it :(&lt;/p&gt;
-
-&lt;p&gt;so the final payload was
-&lt;code class=&quot;highlighter-rouge&quot;&gt;eval `uniq flag.[a-z][a-z][a-z]`&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/shellpwnctf/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the flag is
-&lt;code class=&quot;highlighter-rouge&quot;&gt;shellctf{b@$h_1s_$0_much_fUn}&lt;/code&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;thanks-rudrapratap-for-the-help&quot;&gt;Thanks @RudraPratap for the help&lt;/h5&gt;
-
-&lt;h2 id=&quot;crypto&quot;&gt;Crypto&lt;/h2&gt;
-
-&lt;h3 id=&quot;powerbase100&quot;&gt;Powerbase,100&lt;/h3&gt;
-
-&lt;p&gt;So basically we are given a multiple times base64 string we just have to decode it&lt;/p&gt;
-
-&lt;p&gt;which can done using a python script like this one&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;base64&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;base_64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;base_64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b64decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base_64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base_64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;the flag is
-&lt;code class=&quot;highlighter-rouge&quot;&gt;shellpwn{enc0ding_i$_n0t_encrYpt1ng}&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;seive-150&quot;&gt;Seive ,150&lt;/h3&gt;
-
-&lt;p&gt;Its just a simple RSA problem which can be done using online tools or by solving manually ,I used a tool developed by my friend 
-the link to the repo is &lt;a href=&quot;https://github.com/Masrt200/WoC2k19&quot;&gt;https://github.com/Masrt200/WoC2k19&lt;/a&gt;Plz do check it out&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/shellpwnctf/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The flag is
-&lt;code class=&quot;highlighter-rouge&quot;&gt;shellctf{k3y_s1ze_m@tter$}&lt;/code&gt;&lt;/p&gt;
-</description>
-                <pubDate>Sat, 29 Feb 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:8000/ShellpwnCTF-2020</link>
-                <guid isPermaLink="true">http://localhost:8000/ShellpwnCTF-2020</guid>
-                
-                <category>CTF</category>
-                
-                <category>Forensics</category>
-                
-                <category>Scripting</category>
-                
-                <category>Crypto</category>
                 
                 
             </item>
