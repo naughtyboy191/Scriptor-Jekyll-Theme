@@ -5,9 +5,115 @@
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
         <link>https://naughtyb0y.onrender.com/</link>
         <atom:link href="https://naughtyb0y.onrender.com/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 14 Mar 2020 03:11:27 +0530</pubDate>
-        <lastBuildDate>Sat, 14 Mar 2020 03:11:27 +0530</lastBuildDate>
+        <pubDate>Sun, 15 Mar 2020 02:45:17 +0530</pubDate>
+        <lastBuildDate>Sun, 15 Mar 2020 02:45:17 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
+        
+            <item>
+                <title>Try Hackme Madness Walkthrough</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;First of all as we know its nmap scan as always&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so we have ports 22,80 open ;lets check the website&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we can see a not loadable image lets view that image&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets download and check its hex&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;as you can see why there is a png header in jpg image so lets repair and view the image&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we get a hidden directory lets acesss it&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets check the source&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so we have to brute-force the secret so I wrote a short python script to do this&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://10.10.188.51/th1s_1s_h1dd3n/?secret=&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+	
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;That is wrong!&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;correct secret :&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;this gave me the correct secret as 73&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I tried bruteforcing the ssh with hydra using the the string given above but it was already written above that this is not the username 
+&lt;strong&gt;&lt;em&gt;such a fool&lt;/em&gt;&lt;/strong&gt;
+so now I tried to steghide the image given on the challenge page&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yupp this gave me the password without any passphrase&lt;/p&gt;
+
+&lt;p&gt;So I tried to extract the thm.jpg file also without any passphrase
+but did not get anything&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;now with the passphrase we got by entering the secret
+it got me a username&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;but as it was given in the hint 
+its ROTen so trying rot13 gives the user&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets login and get the user flag first&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now lets search for SUID binaries
+we got this result&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now the screen-4.5.0 looks interesting 
+Using my GOOGLE_FU skills I got this vulnerability&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets copy this script to /tmp directory and run it
+we got the flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_madness/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Fri, 13 Mar 2020 00:00:00 +0530</pubDate>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Madness</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Madness</guid>
+                
+                <category>TryHackMe</category>
+                
+                
+            </item>
         
             <item>
                 <title>Try Hackme Mr Robot CTF Walkthrough</title>
@@ -1266,198 +1372,6 @@ here google comes to my rescue we need to use &lt;em&gt;openssl rsautl&lt;/em&gt
                 <pubDate>Thu, 05 Mar 2020 00:00:00 +0530</pubDate>
                 <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</link>
                 <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>Advent_Of_Cyber</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Advent of Cyber Day1 to Day6 Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;So this is a website where you can get man challenges and box that you can root to improve your knowledge.
-Today I am going to solve the Advent_Of_Cyber  the 25 days challenge for complete beginners
-The link is given below
-&lt;a href=&quot;https://tryhackme.com/dashboard&quot;&gt;https://tryhackme.com/dashboard&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;day-1task-6&quot;&gt;Day 1(Task 6)&lt;/h2&gt;
-&lt;p&gt;So we are given with a login website and we have to register on it using any credentials you want&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After loggin in we have the following screen inspecting the cookies on the website we have the following results&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we have an cookie &lt;strong&gt;authid&lt;/strong&gt; and it seems to be urlencoded and base64 encoded&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On decoding it we have authid=&lt;strong&gt;ghi##########&lt;/strong&gt; 
-here the hidden part show the constant part of cookie&lt;/p&gt;
-
-&lt;p&gt;so now we change the user to mcinventory and forge the cookie and inject it into the browser 
-authid=&lt;em&gt;mcinventory##########&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so now we have the answers for Task 6&lt;/p&gt;
-
-&lt;h2 id=&quot;day2task-7&quot;&gt;Day2(Task 7)&lt;/h2&gt;
-
-&lt;p&gt;Now we are give a url and we have to find the hidden directries at the given url 
-using gobuster for the job&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gobuster &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; http://&amp;lt;ur-machine-ip&amp;gt;:3000 &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; /usr/share/dirb/common.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now on to the directory we get a admin login page 
-looking at the source we have&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;searching for the repository on github&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now entering the default creds&lt;/p&gt;
-
-&lt;p&gt;And We have successfully completed the task :)&lt;/p&gt;
-
-&lt;h2 id=&quot;day3task-8&quot;&gt;Day3(Task 8)&lt;/h2&gt;
-&lt;p&gt;This is a forensics challenge we have to basically just answer the questions on the site by looking at the pcap file&lt;/p&gt;
-&lt;h3 id=&quot;for-ques-1&quot;&gt;For ques 1&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;###for ques 2&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;###for ques 3
-we have to save the hash found in the output above and crack the hash with hashcat using rockyou.txt as given in the hint&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;One more Day complete :)&lt;/p&gt;
-
-&lt;h2 id=&quot;day4task-9&quot;&gt;Day4(Task 9)&lt;/h2&gt;
-
-&lt;p&gt;This task is about basic understanding of linux and moving around in linux&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-1&quot;&gt;ques 1&lt;/h3&gt;
-&lt;p&gt;to see number of visible files  &lt;strong&gt;serioulsy :(&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-2&quot;&gt;ques 2&lt;/h3&gt;
-&lt;p&gt;use cat to see the contest &lt;em&gt;EzPz&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-3&quot;&gt;ques 3&lt;/h3&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; password
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;using the command about the grep &lt;em&gt;recursively&lt;/em&gt;
-this help us save time rather that perform grep on each file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-4&quot;&gt;ques 4&lt;/h3&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;here using a regex string we can easily carve out the IP address&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-5&quot;&gt;ques 5&lt;/h3&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; /etc/passwd |grep /bin/bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;using this we can see how many users have shell access to the machine&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-6&quot;&gt;ques 6&lt;/h3&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sha1sum &lt;/span&gt;file8
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;using the &lt;strong&gt;sha1sum&lt;/strong&gt; command to get the hash&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-7&quot;&gt;ques 7&lt;/h3&gt;
-&lt;p&gt;Since we don’t have permissions to read /etc/shadow file 
-so we find other files having string shadow in it and to which we have permission to read&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find / &lt;span class=&quot;nt&quot;&gt;-name&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;*shadow*&quot;&lt;/span&gt; 2&amp;gt;/dev/null
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get an interesting shadow.bak file which we can so reading it we find the mcsysadmin’s password hash&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/18.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day5task-10&quot;&gt;Day5(Task 10)&lt;/h2&gt;
-&lt;p&gt;This is standard &lt;strong&gt;OSINT&lt;/strong&gt; introductory challenge&lt;/p&gt;
-
-&lt;p&gt;we are given with an jpeg image running exiftool on it gets us the username as the creator tag in exiftool output&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/19.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now using any osint username finder try to find the link to username accounts&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/20.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/21.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We got the username&lt;/p&gt;
-
-&lt;p&gt;Lets checkout the twitter account with the found username&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/22.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We get the answers to the first three questions :)&lt;/p&gt;
-
-&lt;p&gt;now lets go to the wordpress site linked in the description&lt;/p&gt;
-
-&lt;p&gt;There was a mention of wayback machine in the hints section lets look at the results of wayback machine&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/23.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets check the oldest snapshot of the website we get the answers to other to question by viewing the oldest version of this website&lt;/p&gt;
-
-&lt;h2 id=&quot;day6task-11&quot;&gt;Day6(Task 11)&lt;/h2&gt;
-&lt;p&gt;We are given a pcap file and asked some questions about the data in the pcap&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-1-1&quot;&gt;ques 1&lt;/h3&gt;
-
-&lt;p&gt;here on following through the udp  streams we get a a string that seems to encoded so we decode it to get the answer&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/24.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/25.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-2-1&quot;&gt;ques 2&lt;/h3&gt;
-
-&lt;p&gt;Looking through the http request we see that there is a zip file and a jpeg image so we export them from wireshark&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/26.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We can use &lt;strong&gt;steghide&lt;/strong&gt; with empty password to get the data from jpeg file&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;steghide extract &lt;span class=&quot;nt&quot;&gt;-sf&lt;/span&gt; TryHackMe.jpeg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;ques-3-1&quot;&gt;ques 3&lt;/h3&gt;
-
-&lt;p&gt;we can use &lt;strong&gt;John&lt;/strong&gt; to crack the password of zip file&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zip2john christmaslists.zip &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash
-&lt;/span&gt;john &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-                <pubDate>Wed, 04 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day1_to_Day6</guid>
                 
                 <category>TryHackMe</category>
                 
