@@ -2,7 +2,7 @@
 layout: post
 title: "Try Hackme Madness Walkthrough"
 description: "Just a simple Walkthrough"
-date: 2020-03-13
+date: 2020-03-14
 feature_image: images/thm_madness/front.png
 tags: [TryHackMe]
 published: true

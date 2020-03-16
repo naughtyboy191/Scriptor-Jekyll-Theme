@@ -5,9 +5,221 @@
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
         <link>https://naughtyb0y.onrender.com/</link>
         <atom:link href="https://naughtyb0y.onrender.com/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 15 Mar 2020 02:45:17 +0530</pubDate>
-        <lastBuildDate>Sun, 15 Mar 2020 02:45:17 +0530</lastBuildDate>
+        <pubDate>Tue, 17 Mar 2020 02:48:21 +0530</pubDate>
+        <lastBuildDate>Tue, 17 Mar 2020 02:48:21 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
+        
+            <item>
+                <title>Try Hackme Wgel Walkthrough</title>
+                <description>&lt;!--more--&gt;
+&lt;p&gt;Nmap Scan Results:-&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nothing interesting in the nmap scan lets check out the http page&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On checking the source of index.html we get this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So Jessie is a user for this box
+Nice ,A thing to &lt;strong&gt;remember&lt;/strong&gt;
+Lets start with gobuster enumeration&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sitemap directory seems interesting
+lets check it out&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Doesn’t give any special information 
+so lets recursive scan into the sitemap directory&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Interesting!!&lt;/b&gt;
+we find a .ssh directory 
+On checking it out we get a rsa key
+Lets check wether this key has any password or not??&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets quickly change the permissions of the rsa key and login!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We get the user flag 
+lets check &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -l&lt;/code&gt;
+so we can run &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt; as root nice checking for wget priv-esc we can easily find so many exploits
+I used this –&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets HAck~~~&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_wgel/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SO that’s it we get the root flag as well
+easy box nothing much to explain here!!&lt;br /&gt;
+Remember always !!&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Enumeration Is The Key!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Tue, 17 Mar 2020 00:00:00 +0530</pubDate>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Wgel</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Wgel</guid>
+                
+                <category>TryHackMe</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme Willow Walkthrough</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;Lets start with the nmap scan on the machine we can see that three ports are open
+namely ssh ,http ,nfs&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets checkout the http port we get this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets decode it using cyberchef&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so we are given the ssh login key in numerical form which can be converted to actual key if we know the private key and public exponent&lt;/p&gt;
+
+&lt;p&gt;lets checkout the nfs port&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we get the private key and modulus&lt;/p&gt;
+
+&lt;p&gt;so we can write a quick python script like this to get the ssh private key&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;priv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;61527&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;37627&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ssh_raw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw_text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;priv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;saving the key and brutforcing its password using ssh2john&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we get the password 
+lets login!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets copy the user.jpg to our local system&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;it contains our user flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets continue with further enumeration 
+the command &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -l&lt;/code&gt; give us the following results&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we can use mount as root so we mount the &lt;code class=&quot;highlighter-rouge&quot;&gt;hidden_backup&lt;/code&gt; folder to &lt;code class=&quot;highlighter-rouge&quot;&gt;/mnt/creds&lt;/code&gt; directory and view the contents&lt;/p&gt;
+
+&lt;p&gt;After priv-esc to root we check root.txt 
+so it give us this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So it clocked that there maybe a file hidden in user.jpg image as said in root.txt so lets use the root password as passphrase and yup we got the flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_willow/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nice Box , Had lot of fun while figuring out the root flag&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Mon, 16 Mar 2020 00:00:00 +0530</pubDate>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Willow</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Willow</guid>
+                
+                <category>TryHackMe</category>
+                
+                <category>Forensics</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme Inclusion Walkthrough</title>
+                <description>&lt;!--more--&gt;
+&lt;p&gt;Basic nmap scan as always&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/5.png&quot; alt=&quot;&quot; /&gt;
+Open ports are 22,80
+Nothing interesting here 
+lets checkout the website&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here lets checkout LFI-Attack because &lt;strong&gt;obviously&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So I think it is reading the lfiattack named file
+so lets change the file to /etc/passwd&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we get the credentials as a comment so lets 
+login&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so we got the user flag 
+and we can run the socat as root
+so lets checkout GTFObins for socat&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets configure the env variable and keep the port listening on our machine&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so on running the socat on our terminal I get the root terminal&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we got the root on the machine and the flag&lt;/p&gt;
+
+&lt;p&gt;That’s all and Remeber&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Enumeration Is The Key!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Sun, 15 Mar 2020 00:00:00 +0530</pubDate>
+                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Inclusion</link>
+                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Inclusion</guid>
+                
+                <category>TryHackMe</category>
+                
+                <category>LFI</category>
+                
+                
+            </item>
         
             <item>
                 <title>Try Hackme Madness Walkthrough</title>
@@ -106,7 +318,7 @@ we got the flag&lt;/p&gt;
 
 &lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
 </description>
-                <pubDate>Fri, 13 Mar 2020 00:00:00 +0530</pubDate>
+                <pubDate>Sat, 14 Mar 2020 00:00:00 +0530</pubDate>
                 <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Madness</link>
                 <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Madness</guid>
                 
@@ -877,501 +1089,6 @@ That’s it for today&lt;/p&gt;
                 <pubDate>Sun, 08 Mar 2020 00:00:00 +0530</pubDate>
                 <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</link>
                 <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>Advent_Of_Cyber</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Muzzybox boot2root Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;So one time for one more box will complete the tryhackme advent of cyber in coming 2 days just bored of those challenges&lt;/p&gt;
-
-&lt;p&gt;so I came across this beginner box on google so though let me walk you through it 
-the download link to the box is given below&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1yFKVD_bDvzMp66ewOmyihXZ-_RZ8yGOs/view?usp=sharing&quot;&gt;box Download&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets start !!&lt;/p&gt;
-
-&lt;p&gt;First step as always is Netdiscover 
-So the IP address to attack is &lt;strong&gt;192.168.43.227&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now while running the nmap scan I thought that lets check if there is anything by default at port 80 and yes i was right i got a link to &lt;em&gt;index.txt&lt;/em&gt; file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On checking the file it just gave out the tasks to perform in order to root the box&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets go to the port mentioned in the first task 
-We are greeted with the following site&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the idcard.png looked something like this 
-&lt;img src=&quot;images/muzzybox/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;after hours of enumeration and brainfuck(checking for hidden directries using gobuster and then trying nikto and many other recon tools I was so frustated that I went on to watch &lt;em&gt;Jumanji&lt;/em&gt;)
-After a short break I was once again trying what to 
-Then I thought of editing the &lt;em&gt;idcard.png&lt;/em&gt; file as specified on the website and also there was mention of &lt;strong&gt;&lt;em&gt;nosql&lt;/em&gt;&lt;/strong&gt; on the website ,so I went to nosql payload all things &lt;a href=&quot;https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/NoSQL%20Injection/Intruder/NoSQL.txt&quot;&gt;link&lt;/a&gt; and copied a given command in the name tag&lt;/p&gt;
-
-&lt;p&gt;And with the help of my great photo editing skills i got this id card&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;uploading it gave me somewhat of a flag so i]I left it there and moved on to next task as I was frustrated from it&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;flag1-&lt;strong&gt;P!N_!$_123-456-789}&lt;/strong&gt;
-I think that trying different payloads would give different results so you can try it !!!&lt;/p&gt;
-
-&lt;p&gt;Now moving on to the next task 
-visiting the specified url&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;this looked somewhat like a jupyter notebook so trying to access the console to see the file present in the notebook directory when trying to ask for pin, trying &lt;strong&gt;&lt;em&gt;123-456-789&lt;/em&gt;&lt;/strong&gt; which we got in previous flag lets us open the console 
-now its basic enumeration&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And this is the second flag for us 
-flag2-&lt;strong&gt;N$cTF{R34D_F!L3_/home/webssti/noflag.txt}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;based on the flag format the first flag will be
-flag1-&lt;strong&gt;N$cTF{&lt;em&gt;maybe_some_string&lt;/em&gt;+P!N_!$_123-456-789}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;lets move on to third task this was a &lt;strong&gt;&lt;em&gt;trickier&lt;/em&gt;&lt;/strong&gt; one
-on visiting the website we see that it prints anythin we supply to &lt;strong&gt;name&lt;/strong&gt; parameter&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Event php too
-&lt;img src=&quot;images/muzzybox/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so I searched for php injection tool on github and came across this &lt;a href=&quot;https://github.com/epinna/tplmap&quot;&gt;tool&lt;/a&gt; 
-now I downloaded and set it up 
-and ran it and it showed that &lt;strong&gt;name&lt;/strong&gt; parameter was vulnerable&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we can also get a shell so re run the command
-We get a shell and read the file specified in the previous flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the file contents were about a ssh login creds so loggin in 
-lets try the &lt;em&gt;sudo ls&lt;/em&gt; and &lt;em&gt;bash ls&lt;/em&gt; commands but it didn’t help us checking the path
-and permission of &lt;strong&gt;sbin&lt;/strong&gt; folder shows that it belongs to nsctf user and root group 
-&lt;img src=&quot;images/muzzybox/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we can make a file with name ls to read the content of final_flag.txt files whose path is specified in the challenge page and we start up the listener on our side and Bingo!! we got the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/muzzybox/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Final flag-&lt;strong&gt;N$cTF{8!NG000!!!__Y0U_D!D_!T_80!!!}&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So yup that was it !! &lt;br /&gt;
-I spent 9 hours on this box despite this being a beginner box but at the end&lt;br /&gt;
-&lt;strong&gt;Enumeration is the Key&lt;/strong&gt;&lt;/p&gt;
-</description>
-                <pubDate>Fri, 06 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Muzzy-Box-Walkthrough</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Muzzy-Box-Walkthrough</guid>
-                
-                <category>Vulnhub</category>
-                
-                <category>boot2root</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Vulnhub Rickdiculously Easy Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;h1 id=&quot;so-this-is-my-first-box-so-there-may-be-some-mistakes-&quot;&gt;So this is my first box so there may be some mistakes :)&lt;/h1&gt;
-&lt;p&gt;the link to the box
-&lt;a href=&quot;https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/&quot;&gt;https://www.vulnhub.com/entry/rickdiculouslyeasy-1,207/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets start with &lt;em&gt;netsdicover&lt;/em&gt;
-I got the IP of box as &lt;strong&gt;192.168.243.4&lt;/strong&gt;
-&lt;img src=&quot;images/vuln_rid-easy/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I thought that there may be a ftp service running as I read about it some of the other boxes writups
-And yeah there is a flag&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-1&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{Whoa this is unexpected} - 10 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=10/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The nmap scan results are&lt;/p&gt;
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Starting Nmap 7.80 ( https://nmap.org ) at 2020-03-06 21:06 IST
-Nmap scan report for 192.168.243.4
-Host is up (0.00032s latency).
-Not shown: 65528 closed ports
-PORT      STATE SERVICE    VERSION
-21/tcp    open  ftp        vsftpd 3.0.3
-| ftp-anon: Anonymous FTP login allowed (FTP code 230)
-| -rw-r--r--    1 0        0              42 Aug 22  2017 FLAG.txt
-|_drwxr-xr-x    2 0        0               6 Feb 12  2017 pub
-| ftp-syst: 
-|   STAT: 
-| FTP server status:
-|      Connected to ::ffff:192.168.243.3
-|      Logged in as ftp
-|      TYPE: ASCII
-|      No session bandwidth limit
-|      Session timeout in seconds is 300
-|      Control connection is plain text
-|      Data connections will be plain text
-|      At session startup, client count was 1
-|      vsFTPd 3.0.3 - secure, fast, stable
-|_End of status
-22/tcp    open  ssh?
-| fingerprint-strings: 
-|   NULL: 
-|_    Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-31-generic x86_64)
-|_ssh-hostkey: ERROR: Script execution failed (use -d to debug)
-80/tcp    open  http       Apache httpd 2.4.27 ((Fedora))
-| http-methods: 
-|_  Potentially risky methods: TRACE
-|_http-server-header: Apache/2.4.27 (Fedora)
-|_http-title: Morty's Website
-9090/tcp  open  http       Cockpit web service
-|_http-title: Did not follow redirect to https://192.168.243.4:9090/
-13337/tcp open  unknown
-| fingerprint-strings: 
-|   NULL: 
-|_    FLAG:{TheyFoundMyBackDoorMorty}-10Points
-22222/tcp open  ssh        OpenSSH 7.5 (protocol 2.0)
-| ssh-hostkey: 
-|   2048 b4:11:56:7f:c0:36:96:7c:d0:99:dd:53:95:22:97:4f (RSA)
-|   256 20:67:ed:d9:39:88:f9:ed:0d:af:8c:8e:8a:45:6e:0e (ECDSA)
-|_  256 a6:84:fa:0f:df:e0:dc:e2:9a:2d:e7:13:3c:e7:50:a9 (ED25519)
-60000/tcp open  tcpwrapped
-2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
-==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port22-TCP:V=7.80%I=7%D=3/6%Time=5E626E02%P=x86_64-pc-linux-gnu%r(NULL,
-SF:42,&quot;Welcome\x20to\x20Ubuntu\x2014\.04\.5\x20LTS\x20\(GNU/Linux\x204\.4\
-SF:.0-31-generic\x20x86_64\)\n&quot;);
-==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port13337-TCP:V=7.80%I=7%D=3/6%Time=5E626E02%P=x86_64-pc-linux-gnu%r(NU
-SF:LL,29,&quot;FLAG:{TheyFoundMyBackDoorMorty}-10Points\n&quot;);
-MAC Address: 08:00:27:BF:52:95 (Oracle VirtualBox virtual NIC)
-Device type: general purpose
-Running: Linux 3.X|4.X
-OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
-OS details: Linux 3.2 - 4.9
-Network Distance: 1 hop
-Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 55.73 seconds
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;We can see that ports 21,22,80,9090,13337,22222,60000 are open and we found another flag in the scan itself&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-2&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{TheyFoundMyBackDoorMorty} - 10 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=20/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;next I ran nikto to get the hidden directories in the IP address&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And yes there was a &lt;em&gt;/passwords&lt;/em&gt; directory present 
-checking it out gives the 3rd flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-3&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{Yeah d- just don't do it.} - 10 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=30/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets checkout the passwords.html file 
-nothing interesting it seems&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;but its source has a password for us !!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets checkout the &lt;em&gt;robots.txt&lt;/em&gt; file ,root_shell is not even a bit useful but the tracertool-cgi is vulnerable to command injection&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I found that using cat command showed a picture of cat it the system so i used head and tail to view /etc/passwd
-commands used&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&quot;; head /etc/passwd;
-&quot;; tail /etc/passwd;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This shows us that there are 3 users with shell access
-&lt;em&gt;RickSanchez,Summer,Morty&lt;/em&gt;
-And the password &lt;strong&gt;winter&lt;/strong&gt; would most likely be the password for user &lt;em&gt;Summer&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Bingo!
-We got another flag&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-4&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{Get off the high road Summer} - 10 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=40/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Checking out other users’ files 
-For Morty we have a jpeg image and zip file 
-The zip is password protected my best guess was that the password was hidden in the jpg file since strings was not installed in the system I had to use the head command and I got the password as &lt;strong&gt;&lt;em&gt;Meeseek&lt;/em&gt;&lt;/strong&gt;
-and there was another flag for us&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-5&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{131333} - 20 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=60/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Now it was time for &lt;em&gt;RickSanchez&lt;/em&gt;
-there was a binary &lt;strong&gt;safe&lt;/strong&gt; in the directory on running I found that the binary needed an argument
-based on prev flag I entered &lt;em&gt;131333&lt;/em&gt; as the argument and &lt;strong&gt;&lt;em&gt;BOOM&lt;/em&gt;&lt;/strong&gt; I got another flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-6&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{And Awwaaaaayyyy we Go!} - 20 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=80/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;there was also a hint to RickSanchez’s ssh password 
-the band name was &lt;strong&gt;&lt;em&gt;The Flesh Curtains&lt;/em&gt;&lt;/strong&gt;(Found it on Google FYI:Not a RickNMorty Fan)
-Now lets generate the bruteforce password list I used crunch&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After generating the wordlist i let it run with hydra and yup i got the pass&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the pass was &lt;strong&gt;P7Curtains&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;On logging in I checked for root privileges 
-and elevated to root easily and read the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-7&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{Ionic Defibrilator} - 30 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=110/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Now lets focus on remaining open ports 
-On checking out 9090 
-it directly gave us the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-8&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{THERE IS NO ZEUS,IN YOUR FACE!} - 10 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=120/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;And now the last port unchecked was 60000 on connecting to it using netcat gave us some kind of shell and i read the flag no worries&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/vuln_rid-easy/17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;flag-9&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FLAG{Flip the pickle Morty!} - 10 points
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;points=130/130&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Yep this was a great box for me as I completed it within a day despite it being my first box as I had read writup about other boxes previouly it helped me a lot&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;BYE!!&lt;/em&gt;&lt;/p&gt;
-</description>
-                <pubDate>Fri, 06 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Vulnhub-Ridiculously-Easy</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Vulnhub-Ridiculously-Easy</guid>
-                
-                <category>Vulnhub</category>
-                
-                <category>boot2root</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Advent of Cyber Day7 to Day12 Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;So this is the continuation to the Advent_of_Cyber 25 part Series on &lt;a href=&quot;https://tryhackme.com&quot;&gt;https://tryhackme.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day7task-12&quot;&gt;Day7(Task 12)&lt;/h2&gt;
-&lt;p&gt;here we have to do a nmap scan on the given ip and answer some question based on the scan results &lt;strong&gt;So_Ezzzz&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I used the following command&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-sT&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;  10.10.231.143
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;some part of the log results are given below&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/27.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we see a http server on port &lt;strong&gt;999&lt;/strong&gt;
-we access it on our browser to get the answer to the last question&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/28.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day8task-13&quot;&gt;Day8(Task 13)&lt;/h2&gt;
-&lt;p&gt;So I have to find the port on which ssh is running on so I use the following command&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmap &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p-&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--min-parallelism&lt;/span&gt; 100  10.10.159.75
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;we get the port 65534 open and further scan reveals that it is running ssh&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/29.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets ssh into it 
-we now use the following command to find &lt;strong&gt;SUID&lt;/strong&gt; file with user root as the name of the challenge suggest 
-we use the command&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find / &lt;span class=&quot;nt&quot;&gt;-user&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-perm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-4000&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-print&lt;/span&gt; 2&amp;gt;/dev/null
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now the system-control binary looks interesting,on checking it out we find that it executes any command we supply as root so we can get both the flags using this binary&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/31.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/32.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;hackerman!!!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day9task-14&quot;&gt;Day9(Task 14)&lt;/h2&gt;
-&lt;p&gt;This is a simple scripting task we just have to write a script to find the &lt;strong&gt;value&lt;/strong&gt; by using &lt;em&gt;requests&lt;/em&gt; and &lt;em&gt;json&lt;/em&gt; module in python&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;json&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;f&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://10.10.241.214:3000/&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;# print(response.text)
-&lt;/span&gt;	&lt;span class=&quot;n&quot;&gt;json_data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;next&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;# print(value)
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;On running the script we get the flag&lt;/p&gt;
-
-&lt;h2 id=&quot;day10task-15&quot;&gt;Day10(Task 15)&lt;/h2&gt;
-
-&lt;p&gt;So this is basically intro to the metasploit framework&lt;/p&gt;
-
-&lt;p&gt;lets start by basic nmap scans&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/36.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now running nikto to find the vulnerablity in the web server&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/40.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we got a strut vulnerablity from nikto lets search for it in msfconsole&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/37.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;configuring the exploit in the msfconsole and running it&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/35.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now finding the flag using basic regex&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/33.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and ssh pass from bash_history&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now logging into ssh using the credentials and finding the asked info&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/39.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day11task-16&quot;&gt;Day11(Task 16)&lt;/h2&gt;
-&lt;p&gt;This Challenge introduces us to the basic file transfer and database service
-First of lets nmap scan the ip&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/42.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;task-1&quot;&gt;Task 1&lt;/h3&gt;
-&lt;p&gt;Here we have to read creds.txt from nfs of the server&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;task-2&quot;&gt;Task 2&lt;/h3&gt;
-&lt;p&gt;Here we login using creds as &lt;strong&gt;anonymous:anonymous&lt;/strong&gt;
-and get the desired file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/43.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/44.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;task-3&quot;&gt;Task 3&lt;/h3&gt;
-&lt;p&gt;Now login in to mysql database using the credentials found and look for useful data&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/45.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The task is Done &lt;em&gt;:)))&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day12task-17&quot;&gt;Day12(Task 17)&lt;/h2&gt;
-
-&lt;p&gt;So in this challenge we are given a zip file, on unzipping it we find the following&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/49.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-1&quot;&gt;ques 1&lt;/h3&gt;
-&lt;p&gt;we need to find the md5sum of note1 file which can be done easily in the terminal :smile:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/46.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-2&quot;&gt;ques 2&lt;/h3&gt;
-&lt;p&gt;we need to decrypt the gpg file and we are given the passphrase as &lt;strong&gt;25daysofchristmas&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/47.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;ques-3&quot;&gt;ques 3&lt;/h3&gt;
-&lt;p&gt;we need to decrypt an encrypted text file using the given private rsa key 
-here google comes to my rescue we need to use &lt;em&gt;openssl rsautl&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/48.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-                <pubDate>Thu, 05 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day7_to_Day12</guid>
                 
                 <category>TryHackMe</category>
                 
