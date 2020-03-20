@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UTCTF 2020 Writup</title>
-  <meta name="description" content="Just a simple writeup">
-  <link rel="canonical" href="http://localhost:4000/UTCTF20-Writup">
+  <title>Try Hackme Madness Walkthrough</title>
+  <meta name="description" content="Just a simple Walkthrough">
+  <link rel="canonical" href="http://localhost:4000/Try-Hack-Me-Knock-Knock">
   <link rel="alternate" type="application/rss+xml" title="Naughtyb0y&#39;s Blog Feed"
     href="http://localhost:4000/feed.xml">
   
@@ -59,87 +59,95 @@
 
   <article class="post">
     <header class="post-header">
-      <time class="post-date" datetime="2020-03-09">March 9, 2020</time>
-      <h1 class="post-title">UTCTF 2020 Writup</h1>
+      <time class="post-date" datetime="2020-03-18">March 18, 2020</time>
+      <h1 class="post-title">Try Hackme Madness Walkthrough</h1>
       <div class="post-meta">
-        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags" rel="tag">CTF</a>, <a href="/tags" rel="tag">Forensics</a>, <a href="/tags" rel="tag">Web</a></span>
+        By <span class="post-author">Nirmit Shah</span><span class="post-tags"> in <a href="/tags" rel="tag">TryHackMe</a>, <a href="/tags" rel="tag">Port Knocking</a>, <a href="/tags" rel="tag">Forensics</a></span>
       </div><!-- .post-meta -->
       
       <figure class="post-thumbnail image-card width-wide">
-        <img src="/images/utctf20/front.png" alt="UTCTF 2020 Writup">
+        <img src="/images/thm_knock/front.png" alt="Try Hackme Madness Walkthrough">
       </figure><!-- .post-thumbnail -->
       
     </header><!-- .post-header -->
     <div class="post-content">
       <!--more-->
-<h2 id="observe-closelyforensics50-pts">Observe Closely(Forensics),50 pts</h2>
+<p>Nmap scan results show nothing peculiar to explain</p>
 
-<p>Running strings on the binary shows us a hidden_binary at the end of the png file 
-lets run binwalk 
-<img src="images/utctf20/1.png" alt="" /></p>
+<p><img src="images/thm_knock/2.png" alt="" /></p>
 
-<p>we can confirm that there is indeed a binary hidden inside the file lets extract and run it 
-<img src="images/utctf20/2.png" alt="" /></p>
+<p>lets visit the webpage and download the pcap</p>
 
-<p>we got the flag!!</p>
+<p><img src="images/thm_knock/1.png" alt="" /></p>
 
-<h2 id="1-frame-per-minuteforensics50-pts">1 Frame per Minute(Forensics),50 pts</h2>
+<p><img src="images/thm_knock/9.png" alt="" /></p>
 
-<p>As the SSTV was mentioned in the challenge description 
-It was similar to the <em>moonwalk</em> challenges in the picoCTF</p>
+<p>the above screenshot show the order in which port were knocked so lets use the port knocker <a href="https://github.com/grongor/knock">script</a></p>
 
-<p>I used this mobile <a href="https://play.google.com/store/apps/details?id=xdsopl.robot36&amp;hl=en_IN">app</a> in auto-detect mode and let the audio play and I got the flag</p>
+<p>now lets knock the ports in order shown and telnet the last port</p>
 
-<p><img src="images/utctf20/3.png" alt="" /></p>
+<p><img src="images/thm_knock/3.png" alt="" /></p>
 
-<h2 id="basicsforensics50-pts">[basics]Forensics,50 pts</h2>
+<p>we get a hidden directory lets access the directory and download the 2nd pcap file</p>
 
-<p>we just check the file type of the file give and it just turns out to be text so we grep for our flag and get the flag</p>
+<p><img src="images/thm_knock/4.png" alt="" /></p>
 
-<p><img src="images/utctf20/4.png" alt="" /></p>
+<p>On following one of the tcp streams in the pcap file I find this 
+looks like some kind of foreign language</p>
 
-<h2 id="spectreforensics50-pts">spectre(Forensics),50 pts</h2>
+<p><img src="images/thm_knock/5.png" alt="" /></p>
 
-<p>As the name gave the hint ,this must the challenge in which the flag is hidden in the spectrogram of the audio file</p>
+<p>It translates to 1 3 3 7 
+so this must be the ports to knock</p>
 
-<p>firing up Sonic-Visualiser and plotting spectrogram gives us the flag
-<img src="images/utctf20/5.png" alt="" /></p>
+<p><img src="images/thm_knock/6.png" alt="" /></p>
 
-<h2 id="epic-admin-pwnweb-50-pts">epic admin pwn(Web), 50 pts</h2>
+<p>we get another hidden directory so lets check it 
+seem like base64 lets check</p>
 
-<p>we are provided with the following login website vulnerable to SQLi</p>
+<p><img src="images/thm_knock/7.png" alt="" /></p>
 
-<p><img src="images/utctf20/6.png" alt="" /></p>
+<p>So it gives us the ports to knock and then ssh</p>
 
-<p>lets intercept the request with burp and use it with burp</p>
+<p><img src="images/thm_knock/8.png" alt="" /></p>
 
-<p><img src="images/utctf20/7.png" alt="" /></p>
+<p>we get the username password lets login</p>
 
-<p>now using sqlmap gets us the pass</p>
+<p>but as soon as we login the system logs us out</p>
 
-<p><img src="images/utctf20/8.png" alt="" /></p>
+<p><img src="images/thm_knock/10.png" alt="" /></p>
 
-<h2 id="the-legend-of-hackerman-pt-1forensics50-pts">The Legend of Hackerman Pt. 1(Forensics),50 pts</h2>
+<p>so lets try the same command with <code class="highlighter-rouge">/bin/bash</code> in additon to it as we get the shell</p>
 
-<p>so the png file is corrupted so lets compare the corrupted png with another png file
-we see that there is error in magic bytes so lets correct it</p>
+<p><img src="images/thm_knock/11.png" alt="" /></p>
 
-<p><img src="images/utctf20/9.png" alt="" /></p>
+<p>lets stabilise it using tty
+and <code class="highlighter-rouge">sudo -l</code> to check the permissions</p>
 
-<p><img src="images/utctf20/10.png" alt="" /></p>
+<p><img src="images/thm_knock/12.png" alt="" /></p>
 
-<p>now we can easily view the image</p>
+<p>so the system name looked suspicious 
+so I looked into it and found that the linux version is outdated and vulnerable so 
+I checked for it online</p>
 
-<p><img src="images/utctf20/11.png" alt="" /></p>
+<p><img src="images/thm_knock/13.png" alt="" /></p>
 
+<p>so we have to compile the code on the machine so I transferred the ofs.c to the box using scp and compiled it to get the binary and then ran it to get the root shell</p>
+
+<p><img src="images/thm_knock/14.png" alt="" /></p>
+
+<p>So nice box !
+My first kernel exploit so it was great getting the root shell without any roadblocks<br /></p>
+
+<p><b><center>Happy Hacking!!</center></b></p>
 
     </div><!-- .post-content -->
     <div class="post-share">
       <span>Share:</span>
       <a target="_blank"
-        href="https://twitter.com/intent/tweet?text=UTCTF%202020%20Writup&amp;url=http://localhost:4000/UTCTF20-Writup" rel="noopener">Twitter</a>
+        href="https://twitter.com/intent/tweet?text=Try%20Hackme%20Madness%20Walkthrough&amp;url=http://localhost:4000/Try-Hack-Me-Knock-Knock" rel="noopener">Twitter</a>
       <a target="_blank"
-        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/UTCTF20-Writup&amp;t=UTCTF%202020%20Writup" rel="noopener">Facebook</a>
+        href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/Try-Hack-Me-Knock-Knock&amp;t=Try%20Hackme%20Madness%20Walkthrough" rel="noopener">Facebook</a>
     </div><!-- .share-post -->
     <div class="author-box">
       
