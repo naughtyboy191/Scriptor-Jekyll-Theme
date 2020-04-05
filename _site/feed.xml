@@ -5,12 +5,83 @@
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 20 Mar 2020 11:44:14 +0530</pubDate>
-        <lastBuildDate>Fri, 20 Mar 2020 11:44:14 +0530</lastBuildDate>
+        <pubDate>Sun, 05 Apr 2020 17:30:04 +0530</pubDate>
+        <lastBuildDate>Sun, 05 Apr 2020 17:30:04 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
         
             <item>
-                <title>Try Hackme Madness Walkthrough</title>
+                <title>Try Hackme Vulnversity Walkthrough</title>
+                <description>&lt;!--more--&gt;
+&lt;p&gt;Lets start with the basic nmap scan&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This showed that there were 6 ports open on the machine 
+ftp was useless as anon login was not allowed 
+so the only option was the http website
+lets visit the website on port on 3333&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This also does not give us anything useful so lets try using gobuster&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We get an interesting directory named &lt;strong&gt;internal&lt;/strong&gt; 
+lets check it out&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So it allows us to upload files to the machine 
+lets if we can access the files uploaded by us&lt;/p&gt;
+
+&lt;p&gt;Searching for sub-directories inside &lt;code class=&quot;highlighter-rouge&quot;&gt;internal&lt;/code&gt; directory&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we got the uploads directory 
+Lets check it out&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so I got my php rev shell listed so lets open up a netcat listner and get the rev-shell&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So I got the user flag&lt;/p&gt;
+
+&lt;p&gt;Lets search the suid binaries&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On searching for the suid binaries I came across &lt;strong&gt;systemctl&lt;/strong&gt; binary,It looked interesting 
+On searching systemctl on gtfobins I got this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets try getting the root flag using this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_vulnuni/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So this was a very straight forward maching no need for any &lt;strong&gt;&lt;em&gt;crazy&lt;/em&gt;&lt;/strong&gt; things&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Keep Enumerating!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Fri, 20 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-Vulversity</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Vulversity</guid>
+                
+                <category>TryHackMe</category>
+                
+                <category>Port Knocking</category>
+                
+                <category>Forensics</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme Knock-Knock Walkthrough</title>
                 <description>&lt;!--more--&gt;
 &lt;p&gt;Nmap scan results show nothing peculiar to explain&lt;/p&gt;
 
@@ -877,83 +948,6 @@ This series was very interesting and got to learn a lot&lt;/p&gt;
                 <category>TryHackMe</category>
                 
                 <category>Advent_Of_Cyber</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>UTCTF 2020 Writup</title>
-                <description>&lt;!--more--&gt;
-&lt;h2 id=&quot;observe-closelyforensics50-pts&quot;&gt;Observe Closely(Forensics),50 pts&lt;/h2&gt;
-
-&lt;p&gt;Running strings on the binary shows us a hidden_binary at the end of the png file 
-lets run binwalk 
-&lt;img src=&quot;images/utctf20/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we can confirm that there is indeed a binary hidden inside the file lets extract and run it 
-&lt;img src=&quot;images/utctf20/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we got the flag!!&lt;/p&gt;
-
-&lt;h2 id=&quot;1-frame-per-minuteforensics50-pts&quot;&gt;1 Frame per Minute(Forensics),50 pts&lt;/h2&gt;
-
-&lt;p&gt;As the SSTV was mentioned in the challenge description 
-It was similar to the &lt;em&gt;moonwalk&lt;/em&gt; challenges in the picoCTF&lt;/p&gt;
-
-&lt;p&gt;I used this mobile &lt;a href=&quot;https://play.google.com/store/apps/details?id=xdsopl.robot36&amp;amp;hl=en_IN&quot;&gt;app&lt;/a&gt; in auto-detect mode and let the audio play and I got the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;basicsforensics50-pts&quot;&gt;[basics]Forensics,50 pts&lt;/h2&gt;
-
-&lt;p&gt;we just check the file type of the file give and it just turns out to be text so we grep for our flag and get the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;spectreforensics50-pts&quot;&gt;spectre(Forensics),50 pts&lt;/h2&gt;
-
-&lt;p&gt;As the name gave the hint ,this must the challenge in which the flag is hidden in the spectrogram of the audio file&lt;/p&gt;
-
-&lt;p&gt;firing up Sonic-Visualiser and plotting spectrogram gives us the flag
-&lt;img src=&quot;images/utctf20/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;epic-admin-pwnweb-50-pts&quot;&gt;epic admin pwn(Web), 50 pts&lt;/h2&gt;
-
-&lt;p&gt;we are provided with the following login website vulnerable to SQLi&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets intercept the request with burp and use it with burp&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now using sqlmap gets us the pass&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;the-legend-of-hackerman-pt-1forensics50-pts&quot;&gt;The Legend of Hackerman Pt. 1(Forensics),50 pts&lt;/h2&gt;
-
-&lt;p&gt;so the png file is corrupted so lets compare the corrupted png with another png file
-we see that there is error in magic bytes so lets correct it&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now we can easily view the image&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/utctf20/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-</description>
-                <pubDate>Mon, 09 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/UTCTF20-Writup</link>
-                <guid isPermaLink="true">http://localhost:4000/UTCTF20-Writup</guid>
-                
-                <category>CTF</category>
-                
-                <category>Forensics</category>
-                
-                <category>Web</category>
                 
                 
             </item>

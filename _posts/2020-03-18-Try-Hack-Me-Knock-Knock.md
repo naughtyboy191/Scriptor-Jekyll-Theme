@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Try Hackme Madness Walkthrough"
+title: "Try Hackme Knock-Knock Walkthrough"
 description: "Just a simple Walkthrough"
 date: 2020-03-18
 feature_image: images/thm_knock/front.png
