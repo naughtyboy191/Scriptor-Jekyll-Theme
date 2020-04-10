@@ -5,9 +5,533 @@
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 05 Apr 2020 17:30:04 +0530</pubDate>
-        <lastBuildDate>Sun, 05 Apr 2020 17:30:04 +0530</lastBuildDate>
+        <pubDate>Fri, 10 Apr 2020 19:20:37 +0530</pubDate>
+        <lastBuildDate>Fri, 10 Apr 2020 19:20:37 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
+        
+            <item>
+                <title>D33P CTF 2020 Writup</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;Well This was my first ctf with my newly formed team&lt;/p&gt;
+&lt;h2 id=&quot;bat-squad&quot;&gt;Bat Squad&lt;/h2&gt;
+&lt;p&gt;Our standings
+&lt;img src=&quot;images/d33p_0x1/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This post will mostly contain the forensics writups so Plz bare with me&lt;/p&gt;
+
+&lt;h3 id=&quot;name--warmup&quot;&gt;Name:- Warmup&lt;/h3&gt;
+&lt;h3 id=&quot;points-50&quot;&gt;Points: 50&lt;/h3&gt;
+
+&lt;p&gt;so we got a jpeg here lets see what strings  shows&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;hope you got the flag??&lt;/p&gt;
+
+&lt;h3 id=&quot;name--findme&quot;&gt;Name:- findme&lt;/h3&gt;
+&lt;h3 id=&quot;points-90&quot;&gt;Points: 90&lt;/h3&gt;
+
+&lt;p&gt;So this is also a jpeg 
+Strings doesn’t give us anything
+lets use steghide
+what about password???&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Remember&lt;/strong&gt;
+Read the challenge description carefully&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Indeed the author name is passphrase&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;name--mindyou&quot;&gt;Name:- MindYou&lt;/h3&gt;
+&lt;h3 id=&quot;points-90-1&quot;&gt;Points: 90&lt;/h3&gt;
+
+&lt;p&gt;So it provides us with a zip file&lt;/p&gt;
+
+&lt;p&gt;so its a png image opening it gives us a headache&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;**its corrupted **&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;lets check hex&lt;/p&gt;
+
+&lt;p&gt;so lets fix the magic bytes and get the flag &lt;em&gt;EZ_PZ&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;name--cr4ckm3&quot;&gt;Name:- Cr4ckm3&lt;/h3&gt;
+&lt;h3 id=&quot;points-120&quot;&gt;Points: 120&lt;/h3&gt;
+
+&lt;p&gt;So we got a pdff file and a zzip so lets check the pdf because I said so&lt;/p&gt;
+
+&lt;p&gt;its password protected ,no probs pdfcrack to the rescue&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Read the file properly dont be lazy copy it to a blank txt file&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;from here on its easy just stay calm&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;name--cr4ckm3v2&quot;&gt;Name:- Cr4ckm3(v2)&lt;/h3&gt;
+&lt;h3 id=&quot;points-150&quot;&gt;Points: 150&lt;/h3&gt;
+
+&lt;p&gt;I can’t show you the txt file given here as the writup would be 100 pages long&lt;/p&gt;
+
+&lt;p&gt;you just need to know that it is base64 encoded text lets use cybechef as nobody want to do forensics manually its always about finding the righty tools&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Interesting 
+We got a qr it gives us the link&lt;/p&gt;
+
+&lt;p&gt;https://v.ht/passis1r0k&lt;/p&gt;
+
+&lt;p&gt;See the ur carefully there is something important in it&lt;/p&gt;
+
+&lt;p&gt;lets download the zip first
+&lt;img src=&quot;images/d33p_0x1/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you cant find the password for zip read my writeup once more&lt;/p&gt;
+
+&lt;h3 id=&quot;name--deepdive&quot;&gt;Name:- deepDive&lt;/h3&gt;
+&lt;h3 id=&quot;points-250&quot;&gt;Points: 250&lt;/h3&gt;
+
+&lt;p&gt;We get a pdf file 
+on viewing there is no hidden text
+lets view it raw in sublime text 
+there is an interesting hex string there in all the mess
+it starts with the magic bytes of a png lets see it in cyberchef&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Hope you got your answer&lt;/p&gt;
+
+&lt;h3 id=&quot;name--c0rrupt3d-image&quot;&gt;Name:- C0rrupt3d Image&lt;/h3&gt;
+&lt;h3 id=&quot;points-250-1&quot;&gt;Points: 250&lt;/h3&gt;
+
+&lt;p&gt;So the txt  file is a hex string looking at its end I find some bytes matching to the png file header so I reverse the string and view it 
+&lt;img src=&quot;images/d33p_0x1/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So the first four bytes are courrupt them 
+Easy!!
+Replace them with png file signature and get the flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;name--b0ss-obs3rv3r&quot;&gt;Name:- b0ss Obs3rv3r&lt;/h3&gt;
+&lt;h3 id=&quot;points-500&quot;&gt;Points: 500&lt;/h3&gt;
+
+&lt;p&gt;For this challenge I can’t take credit alone my team mates scripted the observation for me
+and We got the flag
+As the challenges says I am the &lt;strong&gt;boss observer&lt;/strong&gt;
+but very &lt;strong&gt;&lt;em&gt;lazy&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;lets start 
+on viewing the pcap in wireshark i see there is lot of dns packets ,first clue&lt;/p&gt;
+
+&lt;p&gt;all the dns packets had ??.d3v1l4l.com in it the first two letter were changing too frequently so as to have a steady connection , second clue&lt;/p&gt;
+
+&lt;p&gt;and the start dns packet had the magic bytes of png file, third clue&lt;/p&gt;
+
+&lt;p&gt;From here onwards its clear scripting problem&lt;/p&gt;
+
+&lt;p&gt;you can use tshark or use regex&lt;/p&gt;
+
+&lt;p&gt;I will show you the final png&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/d33p_0x1/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it for forensics, do comment if you want any other writups&lt;/p&gt;
+
+&lt;center&gt;&lt;b&gt;Go Corona ,Corona Go&lt;/b&gt; &lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Stay Safe&lt;/b&gt; &lt;/center&gt;
+</description>
+                <pubDate>Sat, 04 Apr 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/D33p-CTF</link>
+                <guid isPermaLink="true">http://localhost:4000/D33p-CTF</guid>
+                
+                <category>CTF</category>
+                
+                <category>Forensics</category>
+                
+                <category>Scripting</category>
+                
+                <category>Crypto</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme Sudo room Walkthrough</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;Lets start with the nmap scan&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;nothing odd lets access port 80&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;looking at the message looks like something to do with user-agent&lt;/p&gt;
+
+&lt;p&gt;On trying as &lt;strong&gt;Agent A&lt;/strong&gt; I get the following response,I am not going to show you all the alphabet responses,&lt;strong&gt;C&lt;/strong&gt; get us something interesting&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets look at ftp with username chris and blank pass&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets take a look at the files we have got&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SO after reading the note its sure that its a steganography problem
+very easy ,you just gotta know the right tools&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets crack the 7z with john&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;on reading the message ot seemed like base64&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What to do with “Area51”, then i remembered that we have a jpeg image as well lets try steghide and we get the user password&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I also cracked the password for chris but it was not needed&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;checking the home directory of chris gave us nothing but a ugly photo of some alien
+lets login as james and get the user flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;the sudoers file had interesting stuff looking at the google gets us a priv esc vulnerability&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Exploit Db:-&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_sudo/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so lets privesc and get the flag!!
+&lt;img src=&quot;images/thm_sudo/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It was one of the easy privesc as nothing to change just one line of code&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Keep Enumerating!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Mon, 23 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-sudo</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-sudo</guid>
+                
+                <category>TryHackMe</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme Lord of the Root Walkthrough</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;Lets start with the nmap scan&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;accessing 1337 dosn’t give us anything 
+lets try accessing ssh as any random user&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/2.png&quot; alt=&quot;&quot; /&gt;
+SO it looks like we need to knock the port to access the 1337 port 
+use any knock script from github to do this 
+I am not showing that&lt;/p&gt;
+
+&lt;p&gt;Lets look at the newly opened 1337 port&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I knew that there would be a directory named &lt;strong&gt;mordor&lt;/strong&gt; as this machine was related to lord of the rings on accessing it I got a base64 strings lets decode it&lt;/p&gt;
+
+&lt;p&gt;I know this is kind of random but sometimes &lt;strong&gt;reading books&lt;/strong&gt; helps you :)&lt;/p&gt;
+
+&lt;p&gt;you can always find the directories using gobuster&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;the source:-&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So its a hidden php login form ,capture the login request and use sqlmap to get the user creds&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;by using hit and trial we get login success with smeagol&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;DOing some recon we see that the linux version is very old there must be some vulnerability related to it
+so exploitdb gives us the vulnerability which can be used to escalate permissions to root so 
+lets compile and run the exploit to get the flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lordroot/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;THis room was solved due to a bit of luck bit it was fun 
+there are other ways of escalating privilages if you want that plz comment below&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Mon, 23 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-Lordroot</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Lordroot</guid>
+                
+                <category>TryHackMe</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme LazyAdmin Walkthrough</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;So lets nmap scan the IP&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nothing peculiar lets try gobuster for hidden directories&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SO the &lt;strong&gt;content&lt;/strong&gt; directory seems interesting lets check it out&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So it looks like the machine is running sweetRice CMS
+lets enumerate the content directory using gobuster&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;inc&lt;/strong&gt; directory seemed interesting 
+on accessing it there was a folder named mysql backup present there so lets
+view its contents&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we get the admin credentials in the mysql backup file&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;the hash was cracked easily using crackstation&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets login into the cms and see what can be useful&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;on searching through web for rce in the cms it seemed that we can publish  ads
+So we used the php-revshell and posted the ad online&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;the uploaded file can be accessed from the inc folder so we access it and get the shell&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;we get the user flag from the home folder&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So on checking for sudoers we get that we can use perl as root&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So i changed copy.sh to spawn a reverse shell(use pentestmonkey for help)
+and execute the perl script as root and got the root shell and found the root flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_lazyadmin/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can also user other ways but this was the way I used to get root&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Keep Enumerating!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Mon, 23 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-Lazyadmin</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Lazyadmin</guid>
+                
+                <category>TryHackMe</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme Joystick Walkthrough</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;Let me tell you first the is one of the easiest rooms if you are a beginner on Try Hack ME&lt;/p&gt;
+
+&lt;p&gt;Lets start with the nmap scan&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_joystick/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets checkout port 80&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_joystick/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So lets try ftp with username &lt;strong&gt;steve&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_joystick/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;No Success,&lt;/p&gt;
+
+&lt;p&gt;LEts try ssh bruteforce using hydra (because ftp bruteforce was taking time 
+and I got the user creds for ssh while the ftp one was still running)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_joystick/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we go the password and lets login&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_joystick/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we got our user flag and running linPEAS showed that we had read access to root.txt
+so no need for any privesc simply read the flag&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_joystick/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;THis room was completed in mere 15 minutes so I couldn’t believe myself but it is what it is&lt;/p&gt;
+
+&lt;p&gt;Another one completed&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Sun, 22 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-joystick</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-joystick</guid>
+                
+                <category>TryHackMe</category>
+                
+                
+            </item>
+        
+            <item>
+                <title>Try Hackme Cherry Blossom Walkthrough</title>
+                <description>&lt;!--more--&gt;
+
+&lt;p&gt;Nmap scan as usual&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Seeing port 445 open means that it must be SAMBA!!
+lets use enum4linux
+ANd yes there is an open share on the smb server&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets access the share using smbclient&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We got a text file ,it had a base64 encoded string so copying the contents of the journal.txt file into new file after base64 decoding
+it turns out to be a png file after checking out many tools I finally got a zip file using &lt;strong&gt;stegpy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;WHile trying to unzip the zip it showed that it was corrupted so after 
+getting the file headers correct and trying to unzip for the file it asked for password&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I know many people like to use fcrackzip for password cracking but I love JohnTheRipper its da best 
+And almost instantly I got the password&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;after unzipping the zip I got a ctz file I knew that it was a Cherry tree document but when I used cherry tree to open the file it asked for password 
+A quick google search on cracking ctz file password gave us that we need to use &lt;code class=&quot;highlighter-rouge&quot;&gt;7ztojohn&lt;/code&gt; for password cracking&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Viewing the contents of the document we got the first flag as well as 
+the wordlist to use for ssh bruteforce&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;LEts quickly merge all the worlists into a new file and get to the bruteforce&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;SO we got the creds using hydra&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/11.png&quot; alt=&quot;&quot; /&gt;
+lets login 
+It seems that there are two users on the machine and Johan is the the person who wrote the diary as &lt;strong&gt;J&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;using linPEAS I got to know about a backup file 
+on checking it out it turns out to be backup of shadow file
+SO we get the hash for johan user
+&lt;img src=&quot;images/thm_cherry/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets use john as always but make sure to use the wordlist that we made earlier not the great &lt;strong&gt;rockyou.txt&lt;/strong&gt;,It might blow up your computer due to the load,LOL&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets login 
+I forgot to get the user flag first lets take it&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;when I used sudo -l the password was shown as asterisks on the screen,seems that its a sudo vulnerablity 
+I will leave that on you to find out the exploit for this vulnerablity&lt;/p&gt;
+
+&lt;p&gt;lets run the exploit and get the root&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EZ PZ&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cherry/17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So this was one of the most time-consuming boxes on tryhackme that I have solved
+Its was a great feeling when I cracked anything using JOhn&lt;/p&gt;
+
+&lt;p&gt;Anyways,&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Sat, 21 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-cherry</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-cherry</guid>
+                
+                <category>TryHackMe</category>
+                
+                <category>Hash_cracking</category>
+                
+                
+            </item>
         
             <item>
                 <title>Try Hackme Vulnversity Walkthrough</title>
@@ -73,9 +597,90 @@ On searching systemctl on gtfobins I got this&lt;/p&gt;
                 
                 <category>TryHackMe</category>
                 
-                <category>Port Knocking</category>
                 
-                <category>Forensics</category>
+            </item>
+        
+            <item>
+                <title>Try Hackme You Can't Solve This room Walkthrough</title>
+                <description>&lt;!--more--&gt;
+&lt;p&gt;So as always lets start with a nmap scan&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we have ports 22 and 64695 
+As we dont have any information about the ssh port
+lets check the other port&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Looks like the page is toggling between two pages continuously 
+lets take a look at the source of each page&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/2.png&quot; alt=&quot;&quot; /&gt;
+the above flag also gave us one of the flags
+so we got &lt;strong&gt;flag4&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we can see the hints to the pages available on the machine first lets look at robots.txt
+On decoding the hex its just a troll message nothing useful&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Others pages also contained troll messages which frustated me a lot 
+finally got to page containing ssh creds&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets login using the creds we got earlier&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So we got the &lt;strong&gt;flag1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets take a look at hints&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;there is a flag in the hints itself read carefully lol
+we got &lt;strong&gt;flag8&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a flag hidden in bob’s home directory we use recursive grep to get the flag 
+we got &lt;strong&gt;flag3&lt;/strong&gt;
+&lt;img src=&quot;images/thm_cant/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;so there is a flag there is coolFolder ,the hints told us to check the attributes lets check the attributes and yes we got the flag!!
+we have &lt;strong&gt;flag2&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In same way we the hints told to check for attributes for anotherFolder
+Very easily we get the &lt;strong&gt;flag11&lt;/strong&gt;
+&lt;img src=&quot;images/thm_cant/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is also a flag hidden in /etc/passwd file
+We now have &lt;strong&gt;flag6&lt;/strong&gt;
+&lt;img src=&quot;images/thm_cant/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So now for the final flag on the machine we need to login as &lt;em&gt;cbbcadmin&lt;/em&gt; and check his home directory 
+So hints gave 6 of the 9 char of cbbcadmin’s password we can easily generate the wordlist using crunch and then try bruteforcing using hydra 
+I am not going to give you the password out its a task for you&lt;/p&gt;
+
+&lt;p&gt;SO finally we got the last flag on the machine&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/thm_cant/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Getting root was very easy I don’t think I need to tell you the process you can find it out in seconds!!&lt;/p&gt;
+
+&lt;p&gt;thats it for this box&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;center&gt;Keep Enumerating!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
+</description>
+                <pubDate>Thu, 19 Mar 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Try-Hack-Me-Cant</link>
+                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Cant</guid>
+                
+                <category>TryHackMe</category>
                 
                 
             </item>
@@ -229,725 +834,6 @@ Remember always !!&lt;/p&gt;
                 <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Wgel</guid>
                 
                 <category>TryHackMe</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Willow Walkthrough</title>
-                <description>&lt;!--more--&gt;
-
-&lt;p&gt;Lets start with the nmap scan on the machine we can see that three ports are open
-namely ssh ,http ,nfs&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets checkout the http port we get this&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets decode it using cyberchef&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we are given the ssh login key in numerical form which can be converted to actual key if we know the private key and public exponent&lt;/p&gt;
-
-&lt;p&gt;lets checkout the nfs port&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we get the private key and modulus&lt;/p&gt;
-
-&lt;p&gt;so we can write a quick python script like this to get the ssh private key&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;priv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;61527&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;37627&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ssh_raw&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raw_text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;priv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;saving the key and brutforcing its password using ssh2john&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get the password 
-lets login!!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets copy the user.jpg to our local system&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;it contains our user flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets continue with further enumeration 
-the command &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -l&lt;/code&gt; give us the following results&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we can use mount as root so we mount the &lt;code class=&quot;highlighter-rouge&quot;&gt;hidden_backup&lt;/code&gt; folder to &lt;code class=&quot;highlighter-rouge&quot;&gt;/mnt/creds&lt;/code&gt; directory and view the contents&lt;/p&gt;
-
-&lt;p&gt;After priv-esc to root we check root.txt 
-so it give us this&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So it clocked that there maybe a file hidden in user.jpg image as said in root.txt so lets use the root password as passphrase and yup we got the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_willow/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Nice Box , Had lot of fun while figuring out the root flag&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
-</description>
-                <pubDate>Mon, 16 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-Willow</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Willow</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>Forensics</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Inclusion Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;Basic nmap scan as always&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/5.png&quot; alt=&quot;&quot; /&gt;
-Open ports are 22,80
-Nothing interesting here 
-lets checkout the website&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Here lets checkout LFI-Attack because &lt;strong&gt;obviously&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So I think it is reading the lfiattack named file
-so lets change the file to /etc/passwd&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get the credentials as a comment so lets 
-login&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we got the user flag 
-and we can run the socat as root
-so lets checkout GTFObins for socat&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets configure the env variable and keep the port listening on our machine&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so on running the socat on our terminal I get the root terminal&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_inclusion/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we got the root on the machine and the flag&lt;/p&gt;
-
-&lt;p&gt;That’s all and Remeber&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;&lt;center&gt;Enumeration Is The Key!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
-</description>
-                <pubDate>Sun, 15 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-Inclusion</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Inclusion</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>LFI</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Madness Walkthrough</title>
-                <description>&lt;!--more--&gt;
-
-&lt;p&gt;First of all as we know its nmap scan as always&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we have ports 22,80 open ;lets check the website&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we can see a not loadable image lets view that image&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets download and check its hex&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;as you can see why there is a png header in jpg image so lets repair and view the image&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get a hidden directory lets acesss it&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets check the source&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we have to brute-force the secret so I wrote a short python script to do this&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
-
-
-&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://10.10.188.51/th1s_1s_h1dd3n/?secret=&quot;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-	
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;That is wrong!&quot;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;correct secret :&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;this gave me the correct secret as 73&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I tried bruteforcing the ssh with hydra using the the string given above but it was already written above that this is not the username 
-&lt;strong&gt;&lt;em&gt;such a fool&lt;/em&gt;&lt;/strong&gt;
-so now I tried to steghide the image given on the challenge page&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Yupp this gave me the password without any passphrase&lt;/p&gt;
-
-&lt;p&gt;So I tried to extract the thm.jpg file also without any passphrase
-but did not get anything&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now with the passphrase we got by entering the secret
-it got me a username&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;but as it was given in the hint 
-its ROTen so trying rot13 gives the user&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets login and get the user flag first&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now lets search for SUID binaries
-we got this result&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now the screen-4.5.0 looks interesting 
-Using my GOOGLE_FU skills I got this vulnerability&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets copy this script to /tmp directory and run it
-we got the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_madness/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
-</description>
-                <pubDate>Sat, 14 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-Madness</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Madness</guid>
-                
-                <category>TryHackMe</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Mr Robot CTF Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;So we start with basic enumeration&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So ports 80,443 is open nothing special here lets check the site&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;nothing to find here to lets check the robots.txt file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;yup there is the first flag for us
-lets get it 
-&lt;img src=&quot;images/thm_mr_robot/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now we download the dictionary file 
-running nikto&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Nothing interesting here as well,now on running gobuster we got that it has Wordpress CMS so lets try for wp-login.php page&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;yup its there lets check for username from the dictionary 
-it was elliot kind of guessed it before&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now using burp to capture the requests and use hydra&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Since the dictionary had lot of duplicates I used used uniq command to make new dictionary so number of tries we have to do be less&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets login using the found pass we get the dashboard&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets check the editor ,we can edit the 404.php to get php rev-shell lets change the contents of 404.php and get the shell&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Stabilising the shell using python&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Couldn’t read the key but got the md5 hash of the user lets crack it online&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Lets login and get key 2&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now checking for vulnerable binaries got nmap 
-&lt;img src=&quot;images/thm_mr_robot/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;using nmap –interactive to get the shell
-as the nmap version being used is very old&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_mr_robot/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;got the key 3 as well was a good box learnt about how to use nmap vulnerability&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
-</description>
-                <pubDate>Fri, 13 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-Mr-Robot-CTF</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Mr-Robot-CTF</guid>
-                
-                <category>TryHackMe</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme BoilerCTF Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;So I am back with another writup
-this is the &lt;a href=&quot;https://tryhackme.com/room/boilerctf2&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I started with a quick scan with nmap and got this
-&lt;img src=&quot;images/thm_boilerctf/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The ports open are &lt;strong&gt;21,80,10000&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So we checkout the http page on port 80&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It doesn’t contain anything useful lets check port 10000
-it uses ssl so make sure to use &lt;strong&gt;https:&lt;/strong&gt; instead of &lt;strong&gt;http:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I searched for vulnerability related to this Webmin version But I didn’t find anthing useful so 
-there is a question related to finding the service on the highest port so I ran a quick scan(it still took 10 mins) for the higher ports and found a port open&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On looking deeper into the port I find that ssh is running at this port so 
-we have to find ssh creds&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I forgot to look at ftp port so lets see if anonymous login is possible&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;yes and we find a file lets read it ,It look like a caesar cipher using an online tool I got the message&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Very encouraging words in the message ,at this time I had no clue how to get the login creds so I ran the gobuster for hidden directories&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So the server is using  &lt;strong&gt;Joomla&lt;/strong&gt; CMS
-Again running gobuster on the joomla directory&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Visiting some of the pages its some cipher its just there to troll me 
-I was frustated to see the message I got after visiting some of the pages 
-so I didn’t share the message in them&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On checking &lt;em&gt;_test&lt;/em&gt; i got the following page&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;searching for vulnerablity related to it I got &lt;a href=&quot;https://www.exploit-db.com/exploits/47204&quot;&gt;this&lt;/a&gt;
-So it seems that there is RCE in the url so lets see the log file if we can&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we find some creds&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;basterd:superduperp@$$&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;lets login !!&lt;/p&gt;
-
-&lt;p&gt;We can find the pass word for stoner&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets see what is there in stoner’s home directory
-there is the user.txt flag for us but its name in the machine is secret&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets find the location of root.txt
-we find the location at /root/root.txt&lt;/p&gt;
-
-&lt;p&gt;lets try if we can exploit find first 
-and we can so we use the following command to get the flag
-&lt;code class=&quot;highlighter-rouge&quot;&gt;find / -exec cat /root/root.txt \;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;you will have to stop the command or it will continue till the infinity&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_boilerctf/17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So this is the final flag
-Hope you learnt something! &lt;strong&gt;:)&lt;/strong&gt;&lt;/p&gt;
-</description>
-                <pubDate>Thu, 12 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-BoilerCTF-Walkthrough</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-BoilerCTF-Walkthrough</guid>
-                
-                <category>TryHackMe</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme OhSINT Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;this is the writup for the &lt;a href=&quot;https://tryhackme.com/room/ohsint&quot;&gt;room&lt;/a&gt; on try hackme&lt;/p&gt;
-
-&lt;p&gt;lets start !!
-we are given with an image&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/WindowsXP.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets see what exiftool gives us&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we got a username - &lt;strong&gt;OWoodflint&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;lets search for it using sherlock.py and we got that there is a twitter account with this username&lt;/p&gt;
-
-&lt;p&gt;lets search google with this username&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so there is a Wordpress blog as well lets checkout the twitter account first&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get the answer to first question&lt;/p&gt;
-
-&lt;p&gt;there is also a bssid mention by him in a tweet lets geolocate it
-I found that &lt;a href=&quot;wigle.net&quot;&gt;this&lt;/a&gt; is useful&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we find that our target lives in London&lt;/p&gt;
-
-&lt;p&gt;On infitely zooming in I find the ssid
-its &lt;strong&gt;UnileverWifi&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;after a lot of digging I could not find the email so I though of checking github as there might be some repo with the username and yes I got the email&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;for the 6th question its straight forward we can get it by looking at his blog&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;for the last question we had to find the password of the person so I searched his twitter account but got nothing so I looked deep into his blog and got the password in the source code&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_oshint/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;and yup another room solved I found this quiet easy as it was basic recon but practice is always good :)&lt;/p&gt;
-
-</description>
-                <pubDate>Wed, 11 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-OhSINT</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-OhSINT</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>OSINT</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Advent of Cyber Day19 to Day24 Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;So this is last part of the writup of the 25-day series
-Hope you learnt something till now!!!&lt;/p&gt;
-
-&lt;h2 id=&quot;day19task-24&quot;&gt;Day19(Task 24)&lt;/h2&gt;
-
-&lt;p&gt;this is a LFI task 
-just like we have done in previous task 
-so I ran the whoami command and got the response shown below&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/82.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So we are root so lets find where the user.txt file is located note that we have to url encode the command we are going to execute so I used the find command to find the location&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/80.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now just simply reading out the user.txt file 
-I know that the task was to spawn a revershell using the lfi but I was lazy enough to not do that and find the other way&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/81.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day20task-25&quot;&gt;Day20(Task 25)&lt;/h2&gt;
-
-&lt;p&gt;We are given with an IP let’s start with the basic nmap scan&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/83.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we got the answer to the first question now lets use hydra to bruteforce the user &lt;strong&gt;sam&lt;/strong&gt; password&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/84.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;found the password now logging into the machine using ssh and reading the first flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/85.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the second part was a cronjob escalation which is kind of easy if you understood the previous challenges carefully&lt;/p&gt;
-
-&lt;p&gt;so I am not solving the last part&lt;/p&gt;
-
-&lt;h2 id=&quot;day21task-26&quot;&gt;Day21(Task 26)&lt;/h2&gt;
-
-&lt;p&gt;This is a reversing engineering task 
-I am complete noob in this fields so I read about tons of blogs to get started on this
-lets begin with analysing the binary with r2 using following command&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;r2 -d &amp;lt;file-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;now we start auto-analysing the binary with the command &lt;strong&gt;&lt;em&gt;aaaa&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Now search for the main function as referred in the helping material using&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;afl |grep &quot;main&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/86.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now to view the disassembled assembly code for main function we use
-&lt;code class=&quot;highlighter-rouge&quot;&gt;pdf @main&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/87.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;here we can see the disassembled code and I don’t need to explain you in detail all of the things are given in helping material&lt;/p&gt;
-
-&lt;p&gt;now lets add breakpoints  by using following commands&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;db &amp;lt;address&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;to add a breakpoint&lt;/p&gt;
-
-&lt;p&gt;then we use the commands to control the execution flow
-&lt;strong&gt;dc&lt;/strong&gt;- continue exection 
-&lt;strong&gt;ds&lt;/strong&gt;- go one step ahead into the program flow&lt;/p&gt;
-
-&lt;p&gt;you can see the breakpoints i added&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/88.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;now checking the value of var_ch at intialization
-we see that the value of var_ch is still not initialised so we step one instruction further and view its value by using &lt;code class=&quot;highlighter-rouge&quot;&gt;px @&amp;lt;location&amp;gt;&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/89.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We got the answer to first question now continuing
-now we have to check the values of the register so we use &lt;code class=&quot;highlighter-rouge&quot;&gt;dr&lt;/code&gt; command&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/90.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We got the answer to the second question as well so lets continue
-now we to check the value of &lt;em&gt;var_4h&lt;/em&gt; before the eax register has 0 assigned to it&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/91.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get the answer to the third question as well 
-That’s all for this task&lt;/p&gt;
-
-&lt;h2 id=&quot;day22task-27&quot;&gt;Day22(Task 27)&lt;/h2&gt;
-
-&lt;p&gt;This is also a reversing task but this is used to explain the implementation of the conditional statements in the assembly code&lt;/p&gt;
-
-&lt;p&gt;lets view the decompiled code of the main function&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/92.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the C language equivalent code would be something like this&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;from the above code we can easily answer the questions asked in the task&lt;/p&gt;
-
-&lt;h2 id=&quot;day23task-28&quot;&gt;Day23(Task 28)&lt;/h2&gt;
-
-&lt;p&gt;So this a SQL-injection task
-And I have previously used the sqlmap tool in previous task so I dont need to explain it again&lt;/p&gt;
-
-&lt;p&gt;lets take al look at the website,just a basic login form&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/93.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets start up burp and capture the request to be supplied to splmap
-and check for the databases present with sqlmap&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/94.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so the database name is &lt;strong&gt;social&lt;/strong&gt; and lets check for tables&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/95.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so looks like the table is &lt;strong&gt;users&lt;/strong&gt; so lets dump the data present in the table&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/96.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we got the email for santa claus ie &lt;strong&gt;bigman@shefesh.com&lt;/strong&gt;and the password as md5 hash so lets crack it online&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/97.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets login into the website
-we can easily view the conversation between santa and Mommy Mistletoe&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/98.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;to get a shell we have to upload php revshell to the site 
-so we can post the php file to website but we cant upload it directly as it restricts it so we rename the file as .phtml and it lets us upload it and simultaneously start a listner at the port specified in the file&lt;/p&gt;
-
-&lt;p&gt;so we get a shell and access the flag&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/99.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;day24task-29&quot;&gt;Day24(Task 29)&lt;/h2&gt;
-
-&lt;p&gt;lets start with an nmap scan&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/100.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so lets checkout the 9200 port elastiseach service 
-i got a useful &lt;a href=&quot;https://logz.io/blog/elasticsearch-queries/&quot;&gt;article&lt;/a&gt; on same&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/101.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets checkout the port 8000
-its turns out to be a logfile so lets take a look at it&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/102.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so it seems that there seems to be a server running at 5601
-so lets verify it with nmap and it seems to be true&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/103.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets visit the port&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/104.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets search for the kibana version number&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/105.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On search about vulnerablities related to this version i found &lt;a href=&quot;https://www.cvedetails.com/cve/CVE-2018-17246/&quot;&gt;this&lt;/a&gt; and also &lt;a href=&quot;https://www.cyberark.com/threat-research-blog/execute-this-i-know-you-have-it/&quot;&gt;this&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;lets try it&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/106.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we can see the contents of /etc/passwd in the log file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/107.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so lets try to view the root.txt file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_advent/108.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hurray we got the flag lets submit it and I completed the 25 day series
-This series was very interesting and got to learn a lot&lt;/p&gt;
-
-&lt;p&gt;Day 25 has &lt;strong&gt;no task&lt;/strong&gt; so this ends the writup&lt;/p&gt;
-
-</description>
-                <pubDate>Tue, 10 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Advent-Of-Cyber-Day19_to_Day24</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>Advent_Of_Cyber</category>
                 
                 
             </item>

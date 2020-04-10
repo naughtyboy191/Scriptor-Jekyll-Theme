@@ -4,7 +4,7 @@ title: "Try Hackme Vulnversity Walkthrough"
 description: "Just a simple Walkthrough"
 date: 2020-03-20
 feature_image: images/thm_vulnuni/front.png
-tags: [TryHackMe,Port Knocking,Forensics]
+tags: [TryHackMe]
 published: true
 ---
 <!--more-->
