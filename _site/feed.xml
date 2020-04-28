@@ -5,9 +5,155 @@
         <description>This blog is maintained by a student of IIT(ISM) Dhanbad</description>
         <link>http://localhost:4000/</link>
         <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 27 Apr 2020 00:29:13 +0530</pubDate>
-        <lastBuildDate>Mon, 27 Apr 2020 00:29:13 +0530</lastBuildDate>
+        <pubDate>Tue, 28 Apr 2020 19:35:05 +0530</pubDate>
+        <lastBuildDate>Tue, 28 Apr 2020 19:35:05 +0530</lastBuildDate>
         <generator>Jekyll v4.0.0</generator>
+        
+            <item>
+                <title>IJCTF Forensics  Writup</title>
+                <description>&lt;!--more--&gt;
+&lt;h1 id=&quot;challenge-1&quot;&gt;Challenge 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;name-simple-raw&quot;&gt;Name-Simple Raw&lt;/h2&gt;
+
+&lt;p&gt;Lets start with basic imageinfo command&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Its is windows 7 lets continue further see the process list&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:/media/sf_kali_share/chall1# vol.py &lt;span class=&quot;nt&quot;&gt;--plugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;plugins/ &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; chall1.raw &lt;span class=&quot;nt&quot;&gt;--profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Win7SP1x64 pslist
+Volatility Foundation Volatility Framework 2.6.1
+Offset&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;V&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;          Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
+&lt;span class=&quot;nt&quot;&gt;------------------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--------------------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------------------------------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------------------------------&lt;/span&gt;
+0xfffffa8003c74b30 System                    4      0    106      557 &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt;      0 2020-02-28 04:32:16 UTC+0000                                 
+0xfffffa80044ffb30 smss.exe                272      4      2       32 &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt;      0 2020-02-28 04:32:16 UTC+0000                                 
+0xfffffa8004630630 csrss.exe               364    348      9      616      0      0 2020-02-28 04:32:17 UTC+0000                                 
+0xfffffa80054d1060 wininit.exe             416    348      3       77      0      0 2020-02-28 04:32:17 UTC+0000                                 
+0xfffffa80054d06a0 csrss.exe               424    408     11      222      1      0 2020-02-28 04:32:17 UTC+0000                                 
+0xfffffa80054ff060 winlogon.exe            472    408      5      119      1      0 2020-02-28 04:32:17 UTC+0000                                 
+0xfffffa800552ab30 services.exe            524    416     12      250      0      0 2020-02-28 04:32:17 UTC+0000                                                                  
+&amp;lt;&lt;span class=&quot;nt&quot;&gt;---REDACTED----&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+0xfffffa8005d60360 SearchIndexer.         3016    524     15      635      0      0 2020-02-28 04:32:39 UTC+0000                                 
+0xfffffa8005dd2b30 wmpnetwk.exe           2204    524     14      455      0      0 2020-02-28 04:32:40 UTC+0000                                 
+0xfffffa8005e25750 SearchProtocol          724   3016      7      227      1      0 2020-02-28 04:32:40 UTC+0000                                 
+0xfffffa8005e9eb30 svchost.exe             284    524     12      359      0      0 2020-02-28 04:32:41 UTC+0000                                 
+0xfffffa80060ab5b0 &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;chrome.exe&lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;             3716   2496      0 &lt;span class=&quot;nt&quot;&gt;--------&lt;/span&gt;      1      0 2020-02-28 04:33:03 UTC+0000   2020-02-28 04:34:06 UTC+0000  
+0xfffffa80060e15e0 sppsvc.exe             1120    524      5      163      0      0 2020-02-28 04:34:19 UTC+0000                                 
+0xfffffa8005f29060 svchost.exe             640    524     16      339      0      0 2020-02-28 04:34:19 UTC+0000                                 
+0xfffffa8004055950 WmiApSrv.exe            348    524      7      123      0      0 2020-02-28 04:34:58 UTC+0000                                 
+0xfffffa8005a6d730 DumpIt.exe             4004   2496      5       51      1      1 2020-02-28 04:35:09 UTC+0000                                 
+0xfffffa8005f50060 conhost.exe            4012    424      2       51      1      0 2020-02-28 04:35:09 UTC+0000                                 
+0xfffffa80059d9a90 SearchFilterHo         3912   3016      5       24 &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt;      0 2020-02-28 04:35:40 UTC+0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So here the chrome browers was open in the image so lets check the chrome history using volatility plugins&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;on visting the &lt;a href=&quot;https://docs.google.com/document/d/1S2ORv-1k0PlurLZAHuiVX1JXNWfilgIHaWkyU1L8xvU&quot;&gt;link&lt;/a&gt; we get a doc ,
+it does not show anything specifically but on downloading and copying all content and viewing in notepad we get this&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;password = &lt;strong&gt;vv4rl0ck_rO0tx&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Seems like password lets search for archives using filescan
+this file looked interesting&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0x000000013de7ec20      2      0 RW-rw- &lt;span class=&quot;se&quot;&gt;\D&lt;/span&gt;evice&lt;span class=&quot;se&quot;&gt;\H&lt;/span&gt;arddiskVolume2&lt;span class=&quot;se&quot;&gt;\U&lt;/span&gt;sers&lt;span class=&quot;se&quot;&gt;\B&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\D&lt;/span&gt;ownloads&lt;span class=&quot;se&quot;&gt;\9&lt;/span&gt;4lf.rar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;lets extract the rar file using dumpfiles volatility&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;challenge-2&quot;&gt;Challenge 2&lt;/h1&gt;
+
+&lt;h2 id=&quot;name-list-of-file-type&quot;&gt;Name-List Of File Type&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets scan for processes&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@kali:/media/sf_kali_share/for2# vol &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; for2.raw &lt;span class=&quot;nt&quot;&gt;--profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Win7SP1x64 pslist
+Volatility Foundation Volatility Framework 2.6.1
+Offset&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;V&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;          Name                    PID   PPID   Thds     Hnds   Sess  Wow64 Start                          Exit                          
+&lt;span class=&quot;nt&quot;&gt;------------------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--------------------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------------------------------&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;------------------------------&lt;/span&gt;
+0xfffffa80018b05f0 System                    4      0    102      513 &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt;      0 2020-04-16 11:17:32 UTC+0000                                 
+0xfffffa800300a040 smss.exe                280      4      5       30 &lt;span class=&quot;nt&quot;&gt;------&lt;/span&gt;      0 2020-04-16 11:17:32 UTC+0000                                 
+0xfffffa8003af8060 csrss.exe               380    360      9      545      0      0 2020-04-16 11:17:33 UTC+0000                                 
+0xfffffa8003da08a0 wininit.exe             424    360      7       92      0      0 2020-04-16 11:17:33 UTC+0000                                 
+0xfffffa8003da7380 csrss.exe               448    432      9      234      1      0 2020-04-16 11:17:33 UTC+0000                                 
+0xfffffa8003de4350 winlogon.exe            496    432      7      124      1      0 2020-04-16 11:17:33 UTC+0000                                 
+0xfffffa8003dec220 services.exe            516    424     18      242      0      0 2020-04-16 11:17:33 UTC+0000                                 
+0xfffffa8003e014c0 lsass.exe               548    424     12      644      0      0 2020-04-16 11:17:33 UTC+0000                                 
+&amp;lt;&lt;span class=&quot;nt&quot;&gt;-------REDACTED------------------&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+11:17:54 UTC+0000                                 
+0xfffffa8004c9db30 WmiApSrv.exe           2300    516      7      119      0      0 2020-04-16 11:17:55 UTC+0000                                 
+0xfffffa80031c0060 &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;TrueCrypt.exe&lt;span class=&quot;k&quot;&gt;**&lt;/span&gt;          2488   2288     16      480      1      1 2020-04-16 11:17:57 UTC+0000                                 
+0xfffffa8002437b30 DumpIt.exe             2372   2288      2       47      1      1 2020-04-16 11:18:28 UTC+0000                                 
+0xfffffa800320cb30 conhost.exe            2124    448      2       52      1      0 2020-04-16 11:18:28 UTC+0000                                 
+0xfffffa8003166720 dllhost.exe            2132    676      6       91      1      0 2020-04-16 11:18:30 UTC+0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;the process trucrypt.exe looks useful so lets use the trucryptpassphrase option to get the pass&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;pass=&lt;code class=&quot;highlighter-rouge&quot;&gt;d3p_tr4i_4nd_b0_d0i_qu4&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;lets do filescan ,according to hints we find one wav file and one flag.png file useful from the list&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0x000000007cdb3d90     16      0 -W-rwd \Device\HarddiskVolume2\Users\Bin\Desktop\flag.pngmp\vmware-Bin\VMwareDnD\e904785e\flag.png
+0x000000007cdcc070     32      0 RW---- \Device\HarddiskVolume3\LoiNho-DenVau.wav
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;lets try to extract them 
+&lt;strong&gt;NOTE&lt;/strong&gt;:use the flag &lt;code class=&quot;highlighter-rouge&quot;&gt;-u&lt;/code&gt; with the files to get DataSectionObject and SharedCacheMap both as we need the data object to run steghide with&lt;/p&gt;
+
+&lt;p&gt;So most probably wav would be used with steghide to hide a file 
+lets search for userpass using hashdump&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets use crackstation to crack the NTLM hash and the hash for &lt;code class=&quot;highlighter-rouge&quot;&gt;Bin&lt;/code&gt; user returns success&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;lets run steghide with the pass as &lt;code class=&quot;highlighter-rouge&quot;&gt;t0mc4t&lt;/code&gt; and we get a word file&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/images/ijctf_forensics/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As the file name suggest it must be a truecrypt container files
+if you don’t know how to setup truecrypt containers here is a useful &lt;a href=&quot;https://kenfavors.com/code/how-to-open-a-truecrypt-container-using-cryptsetup/&quot;&gt;guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;we get one more password !!
+pass=&lt;code class=&quot;highlighter-rouge&quot;&gt;k0_b1k_d4t_p4ss_l4_g1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;what could this be for???
+maybe for flag.png , lets check the file type it seems to be encrypted using gpg so lets decrypt 
+using the password we got&lt;/p&gt;
+
+&lt;p&gt;We get the flag finally!! &lt;strong&gt;:)))&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;images/ijctf_forensics/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+                <pubDate>Tue, 28 Apr 2020 00:00:00 +0530</pubDate>
+                <link>http://localhost:4000/Ijctf-Forensics</link>
+                <guid isPermaLink="true">http://localhost:4000/Ijctf-Forensics</guid>
+                
+                <category>CTF</category>
+                
+                <category>Forensics</category>
+                
+                <category>Volatility</category>
+                
+                
+            </item>
         
             <item>
                 <title>IJCTF Boot2root  Writup</title>
@@ -806,91 +952,6 @@ I am not going to give you the password out its a task for you&lt;/p&gt;
                 <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Cant</guid>
                 
                 <category>TryHackMe</category>
-                
-                
-            </item>
-        
-            <item>
-                <title>Try Hackme Knock-Knock Walkthrough</title>
-                <description>&lt;!--more--&gt;
-&lt;p&gt;Nmap scan results show nothing peculiar to explain&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets visit the webpage and download the pcap&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/9.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;the above screenshot show the order in which port were knocked so lets use the port knocker &lt;a href=&quot;https://github.com/grongor/knock&quot;&gt;script&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;now lets knock the ports in order shown and telnet the last port&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get a hidden directory lets access the directory and download the 2nd pcap file&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;On following one of the tcp streams in the pcap file I find this 
-looks like some kind of foreign language&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It translates to 1 3 3 7 
-so this must be the ports to knock&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get another hidden directory so lets check it 
-seem like base64 lets check&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So it gives us the ports to knock and then ssh&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;we get the username password lets login&lt;/p&gt;
-
-&lt;p&gt;but as soon as we login the system logs us out&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/10.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so lets try the same command with &lt;code class=&quot;highlighter-rouge&quot;&gt;/bin/bash&lt;/code&gt; in additon to it as we get the shell&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/11.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;lets stabilise it using tty
-and &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -l&lt;/code&gt; to check the permissions&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/12.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so the system name looked suspicious 
-so I looked into it and found that the linux version is outdated and vulnerable so 
-I checked for it online&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;so we have to compile the code on the machine so I transferred the ofs.c to the box using scp and compiled it to get the binary and then ran it to get the root shell&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;images/thm_knock/14.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;So nice box !
-My first kernel exploit so it was great getting the root shell without any roadblocks&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;&lt;center&gt;Happy Hacking!!&lt;/center&gt;&lt;/b&gt;&lt;/p&gt;
-</description>
-                <pubDate>Wed, 18 Mar 2020 00:00:00 +0530</pubDate>
-                <link>http://localhost:4000/Try-Hack-Me-Knock-Knock</link>
-                <guid isPermaLink="true">http://localhost:4000/Try-Hack-Me-Knock-Knock</guid>
-                
-                <category>TryHackMe</category>
-                
-                <category>Port Knocking</category>
-                
-                <category>Forensics</category>
                 
                 
             </item>
