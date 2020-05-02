@@ -58,7 +58,7 @@ int main(int argc, char* argv[], char* envp[]){
 
 Intially lines shows that we need to pass 2 arguments for the program to run 
 Further it determines the value of fd using the following logic:-
-` fd= atoi(argv[1])-0x1234 `
+```fd= atoi(argv[1])-0x1234```
 
 atoi function converts a string to integer 
 
