@@ -4,7 +4,7 @@ layout: post
 title: Noobctf 0x1 pre-Ctf Writups
 description: "Challenges that I found Interesting"
 date: 2020-05-16
-feature_image: images/noob01pre_ctf/front.png
+feature_image: images/noob01pre/front.png
 tags: [CTF,Forensics]
 published: true
 
